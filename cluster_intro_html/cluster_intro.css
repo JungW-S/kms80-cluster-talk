@@ -3178,6 +3178,11 @@ body {
   line-height: 1.12;
 }
 
+#quantum-affine-slide .kkop-categorification-line,
+#quantum-affine-slide .kkop-in-particular {
+  margin: 0.12rem 0;
+}
+
 #quantum-affine-slide .theorem-card mjx-container[display="true"],
 #quantum-affine-slide .compact-source-list mjx-container[display="true"] {
   margin: 0.18em 0;
