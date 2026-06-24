@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Construction demo: admissible chains and Demazure weaves</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./story_rebuild.css?v=step3-no-ghost-1">
+  </head>
+  <body class="guided-story-page">
+    <main class="app-shell story-rebuild-shell">
+      <header class="page-header story-rebuild-header">
+        <div>
+          <p class="eyebrow">admissible chains and i-boxes</p>
+          <h1>Admissible chain and i-box construction in type A<sub>n</sub></h1>
+          <p class="subtitle">
+            Build the admissible chain, the double string, and the opening of the double inductive weave.
+          </p>
+        </div>
+      </header>
+
+      <section class="rebuild-input-wrap">
+        <form id="input-form" class="input-panel">
+          <div class="panel-header">
+            <h2>Input</h2>
+          </div>
+
+          <section class="input-subpanel random-input-panel">
+            <div class="input-subpanel-header">
+              <h3>Random admissible chain <span class="formula">ℭ</span></h3>
+            </div>
+            <div class="random-input-grid">
+              <label class="field">
+                <span>Type A rank n</span>
+                <input id="rank-input" name="rank" type="number" min="1" step="1" inputmode="numeric">
+              </label>
+
+              <label class="field">
+                <span>Length r</span>
+                <input id="r-input" name="r" type="number" min="1" step="1" inputmode="numeric">
+              </label>
+            </div>
+            <button type="button" id="random-button" class="secondary-button random-button">Random ℭ</button>
+            <p class="input-note">
+              Randomly chooses the underlying <span class="notation-underline">Δ</span>, LR sequence, and admissible chain in type A<sub>n</sub>.
+            </p>
+          </section>
+
+          <section class="input-subpanel manual-input-panel">
+            <div class="input-subpanel-header">
+              <h3>Manual input</h3>
+            </div>
+
+            <label class="field">
+              <span>Expression sequence <span class="formula">𝐢</span></span>
+              <textarea id="u-input" name="u" rows="2" spellcheck="false"></textarea>
+            </label>
+
+            <label class="field">
+              <span>Expression sequence <span class="notation-underline">Δ</span></span>
+              <textarea id="rxw-input" name="rxw" rows="2" spellcheck="false"></textarea>
+            </label>
+
+            <label class="field">
+              <span>LR sequence</span>
+              <textarea id="lr-input" name="lr" rows="2" spellcheck="false"></textarea>
+            </label>
+          </section>
+
+          <button type="submit" class="primary-button">Run construction</button>
+          <p class="input-note">
+            Entries may be separated by spaces, commas, or line breaks.
+            The initial envelope is c = #{L entries} + 1.
+          </p>
+          <div id="error-box" class="error-box" hidden></div>
+        </form>
+      </section>
+
+      <section id="story-film" class="story-film" aria-label="Scroll animation for admissible chains and i-boxes">
+        <div class="story-sticky">
+          <div class="story-stage">
+            <svg id="story-svg" viewBox="0 0 1440 860" role="img" aria-label="Scroll-driven construction"></svg>
+            <button id="story-play-button" class="story-play-button" type="button" aria-label="Play animation">
+              <span class="story-play-icon" aria-hidden="true">▶</span>
+              <span class="story-play-label">Play</span>
+            </button>
+            <div id="story-caption" class="story-caption" aria-live="polite"></div>
+            <div class="story-progress" aria-hidden="true">
+              <span id="story-progress-fill"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="./src/story_rebuild.mjs?v=math-labels-1"></script>
+  </body>
+</html>

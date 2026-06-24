@@ -1,0 +1,1879 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Comparison of cluster algebra structures arising from i-boxes and Demazure weaves</title>
+    <link rel="stylesheet" href="./cluster_intro.css?v=cluster-flow-20260624-67">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["\\(", "\\)"], ["$", "$"]],
+          macros: {
+            C: "\\mathbb{C}",
+            Q: "\\mathbb{Q}",
+            R: "\\mathbb{R}",
+            Z: "\\mathbb{Z}",
+            boldsymbol: ["\\mathbf{#1}", 1],
+            bfA: "{\\mathbb{Z}[q^{\\pm1/2}]}",
+            kk: "{\\mathbb{Q}(q^{1/2})}",
+            g: "\\mathfrak{g}",
+            sfG: "\\mathsf{G}",
+            sfB: "\\mathsf{B}",
+            sfK: "\\mathsf{K}",
+            sfT: "\\mathsf{T}",
+            weyl: "\\mathsf{W}",
+            Br: "\\operatorname{Br}",
+            Seq: "\\mathrm{Seq}",
+            Conf: "\\operatorname{Conf}",
+            uii: "\\boldsymbol{i}",
+            ujj: "\\boldsymbol{j}",
+            rxw: "\\underline{\\Delta}",
+            ttb: "\\mathtt{b}",
+            bg: "\\sigma",
+            frakC: "\\mathfrak{C}",
+            frakc: "\\mathfrak{c}",
+            fW: "\\mathfrak{W}",
+            seed: "\\Sigma",
+            scrA: "\\mathscr{A}",
+            cA: "\\mathscr{A}",
+            ccA: "\\mathscr{A}_{\\bullet}",
+            calA: "\\mathcal{A}",
+            hcalA: "\\widehat{\\calA}",
+            obbA: "\\mathbb{A}",
+            tobbA: "\\widetilde{\\mathbb{A}}",
+            pP: "\\mathcal{P}",
+            tpP: "\\widetilde{\\mathcal{P}}",
+            TT: "\\mathrm{T}",
+            FF: "\\mathsf{p}",
+            bFF: "\\overline{\\mathsf{p}}",
+            rmF: "\\mathrm{F}",
+            mD: "\\mathsf{D}"
+          }
+        },
+        svg: { fontCache: "global" },
+        startup: { typeset: false }
+      };
+    </script>
+    <script defer src="./mathjax/tex-svg.js"></script>
+  </head>
+  <body>
+    <main id="deck" class="slide-shell" aria-label="Animated presentation">
+      <header id="frame-title" class="frame-title">Mutation</header>
+
+      <section class="slide-body">
+        <section id="title-slide" class="title-slide" aria-label="Title slide">
+          <div class="title-content">
+            <h1 class="paper-title">
+              <span>A Comparison of</span>
+              <span>cluster algebra structures arising from</span>
+              <span>\(i\)-boxes and Demazure weaves</span>
+            </h1>
+            <div class="title-author-block">
+              <p class="speaker">Woo-Seok Jung</p>
+              <p class="joint">joint work with JiSun Huh, Myungho Kim, and Euiyong Park</p>
+            </div>
+            <div class="title-venue-block">
+              <p class="affiliation">University of Seoul</p>
+              <p class="conference">International Conference for the 80th Anniversary of the Korean Mathematical Society</p>
+              <p class="arxiv"><a href="https://arxiv.org/abs/2606.07493">arXiv:2606.07493</a></p>
+            </div>
+          </div>
+        </section>
+
+        <section id="overview-slide" class="static-slide single-column overview-slide" aria-label="Overview">
+          <div class="overview-content">
+            <h1>Overview</h1>
+            <ol class="overview-list">
+              <li>Cluster Algebra</li>
+              <li>Bosonic Extension</li>
+              <li>Braid Variety</li>
+              <li>Comparison Theorem</li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="section-slide" class="section-slide" aria-label="Section slide">
+          <h1 id="section-heading">Cluster Algebra</h1>
+          <div class="motivation-text" aria-label="Algebra and cluster algebra motivation">
+            <div class="motivation-line">
+              <span class="motivation-left">Algebra</span>
+              <span class="motivation-arrow" aria-hidden="true">&larr;</span>
+              <span class="motivation-right">generators, relations</span>
+            </div>
+            <div class="motivation-line">
+              <span class="motivation-left">Cluster algebra</span>
+              <span class="motivation-arrow" aria-hidden="true">&larr;</span>
+              <span class="motivation-right">seed</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="cluster-slide" class="cluster-slide">
+        <section class="visual-panel" aria-label="Animated quiver and seed">
+          <svg id="cluster-svg" viewBox="0 0 760 520" role="img" aria-label="Seed mutation animation">
+            <defs>
+              <marker id="arrow" markerWidth="7" markerHeight="7" refX="6.1" refY="3.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M 0 0 L 7 3.5 L 0 7 z"></path>
+              </marker>
+              <marker id="arrow-gold" markerWidth="7" markerHeight="7" refX="6.1" refY="3.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M 0 0 L 7 3.5 L 0 7 z"></path>
+              </marker>
+              <marker id="mini-arrow" markerWidth="5" markerHeight="5" refX="4.4" refY="2.5" orient="auto" markerUnits="strokeWidth">
+                <path d="M 0 0 L 5 2.5 L 0 5 z"></path>
+              </marker>
+            </defs>
+
+            <g id="seed-view" class="seed-view">
+              <g id="original-seed" class="original-seed">
+                <path id="path-12" class="quiver-edge" d="M 294 260 L 374 260"></path>
+                <path id="path-23" class="quiver-edge" d="M 454 260 L 534 260"></path>
+                <path id="path-13" class="quiver-edge new-edge" d="M 289 232 C 352 168 476 168 539 232"></path>
+
+                <g id="node-4" class="node frozen-node" transform="translate(166 154)">
+                  <rect x="-35" y="-35" width="70" height="70"></rect>
+                  <text class="node-text" y="6">x<tspan baseline-shift="sub" font-size="18">4</tspan></text>
+                </g>
+                <g id="node-1" class="node mutable-node" transform="translate(256 260)">
+                  <circle r="38"></circle>
+                  <text class="node-text" y="6">x<tspan baseline-shift="sub" font-size="18">1</tspan></text>
+                </g>
+                <g id="node-2" class="node mutable-node active-node" transform="translate(414 260)">
+                  <circle r="38"></circle>
+                  <text id="node-2-text" class="node-text" y="6">x<tspan baseline-shift="sub" font-size="18">2</tspan></text>
+                </g>
+                <g id="node-3" class="node mutable-node" transform="translate(572 260)">
+                  <circle r="38"></circle>
+                  <text class="node-text" y="6">x<tspan baseline-shift="sub" font-size="18">3</tspan></text>
+                </g>
+                <path id="path-41" class="quiver-edge frozen-edge above-edge" d="M 210 187 L 236 228"></path>
+
+                <text class="frozen-label" x="166" y="103">frozen</text>
+                <text class="mutable-label" x="414" y="326">mutable</text>
+                <text id="focus-mutation-label" class="focus-mutation-label" x="414" y="354">mutate at 2</text>
+                <text class="seed-label" x="414" y="382">&#931; = (x, Q)</text>
+              </g>
+
+              <g id="mutation-flow" class="mutation-flow">
+                <path class="mutation-arrow" d="M 414 234 L 414 288"></path>
+                <path class="mutation-arrow-return" d="M 414 288 L 414 234"></path>
+                <text id="mutation-label" class="mutation-label" x="448" y="266">&#956;<tspan baseline-shift="sub" font-size="14">2</tspan></text>
+              </g>
+
+              <g id="variable-formula" class="variable-formula" transform="translate(414 454)">
+                <text class="formula-main" x="0" y="0">x</text>
+                <text class="formula-sub" x="13" y="8">2</text>
+                <text class="formula-prime" x="24" y="-10">&#8242;</text>
+                <text class="formula-main" x="50" y="0">=</text>
+                <text class="formula-main" x="88" y="0">(</text>
+                <text class="formula-main" x="107" y="0">x</text>
+                <text class="formula-sub" x="120" y="8">1</text>
+                <text class="formula-main" x="147" y="0">+</text>
+                <text class="formula-main" x="174" y="0">x</text>
+                <text class="formula-sub" x="187" y="8">3</text>
+                <text class="formula-main" x="206" y="0">)</text>
+                <line class="formula-frac" x1="84" y1="15" x2="211" y2="15"></line>
+                <text class="formula-main" x="147" y="40">x</text>
+                <text class="formula-sub" x="160" y="48">2</text>
+              </g>
+
+              <g id="copy-seed" class="copy-seed">
+                <path class="quiver-edge highlight-edge" d="M 294 365 L 374 365"></path>
+                <path class="quiver-edge highlight-edge" d="M 454 365 L 534 365"></path>
+                <path class="quiver-edge new-edge visible highlight-edge" d="M 289 337 C 352 286 476 286 539 337"></path>
+                <path class="quiver-edge frozen-edge above-edge" d="M 210 292 L 236 333"></path>
+
+                <g class="node frozen-node" transform="translate(166 259)">
+                  <rect x="-28" y="-28" width="56" height="56"></rect>
+                  <text class="node-text small-node-text" y="5">x<tspan baseline-shift="sub" font-size="15">4</tspan></text>
+                </g>
+                <g class="node mutable-node" transform="translate(256 365)">
+                  <circle r="32"></circle>
+                  <text class="node-text small-node-text" y="5">x<tspan baseline-shift="sub" font-size="15">1</tspan></text>
+                </g>
+                <g class="node mutable-node active-node" transform="translate(414 365)">
+                  <circle r="32"></circle>
+                  <text class="node-text small-node-text" y="5">x<tspan baseline-shift="sub" font-size="15">2</tspan></text>
+                </g>
+                <g class="node mutable-node" transform="translate(572 365)">
+                  <circle r="32"></circle>
+                  <text class="node-text small-node-text" y="5">x<tspan baseline-shift="sub" font-size="15">3</tspan></text>
+                </g>
+              </g>
+
+              <g id="mutated-seed" class="mutated-seed">
+                <path class="quiver-edge" d="M 374 365 L 294 365"></path>
+                <path class="quiver-edge" d="M 534 365 L 454 365"></path>
+                <path class="quiver-edge new-edge visible" d="M 289 337 C 352 286 476 286 539 337"></path>
+                <path class="quiver-edge frozen-edge above-edge" d="M 210 292 L 236 333"></path>
+
+                <g class="node frozen-node" transform="translate(166 259)">
+                  <rect x="-28" y="-28" width="56" height="56"></rect>
+                  <text class="node-text small-node-text" y="5">x<tspan baseline-shift="sub" font-size="15">4</tspan></text>
+                </g>
+                <g class="node mutable-node" transform="translate(256 365)">
+                  <circle r="32"></circle>
+                  <text class="node-text small-node-text" y="5">x<tspan baseline-shift="sub" font-size="15">1</tspan></text>
+                </g>
+                <g class="node mutable-node active-node" transform="translate(414 365)">
+                  <circle r="32"></circle>
+                  <text class="node-text small-node-text" x="-3" y="5">x<tspan baseline-shift="sub" font-size="15">2</tspan></text>
+                  <text class="prime-mark" x="14" y="-10">&#8242;</text>
+                </g>
+                <g class="node mutable-node" transform="translate(572 365)">
+                  <circle r="32"></circle>
+                  <text class="node-text small-node-text" y="5">x<tspan baseline-shift="sub" font-size="15">3</tspan></text>
+                </g>
+                <text class="seed-label lower-seed-label" x="414" y="468">&#956;<tspan baseline-shift="sub" font-size="17">2</tspan>(&#931;)</text>
+              </g>
+
+              <g id="continuation-view" class="continuation-view">
+                <g class="pattern-node pattern-root" transform="translate(375 160)">
+                  <circle r="52"></circle>
+                  <text y="5">&#931;</text>
+                </g>
+                <path class="pattern-edge" d="M 375 214 L 375 309"></path>
+                <path class="pattern-edge bridge-extra" d="M 334 196 L 257 246"></path>
+                <path class="pattern-edge bridge-extra" d="M 416 196 L 493 246"></path>
+                <text class="pattern-edge-label" x="394" y="262">&#956;<tspan baseline-shift="sub" font-size="13">2</tspan></text>
+                <text class="pattern-edge-label bridge-extra" x="290" y="221">&#956;<tspan baseline-shift="sub" font-size="13">1</tspan></text>
+                <text class="pattern-edge-label bridge-extra" x="460" y="221">&#956;<tspan baseline-shift="sub" font-size="13">3</tspan></text>
+                <g class="pattern-node bridge-extra" transform="translate(235 260)">
+                  <circle r="38"></circle>
+                  <text class="pattern-side-text" y="5">&#956;<tspan baseline-shift="sub" font-size="11">1</tspan>(&#931;)</text>
+                </g>
+                <g class="pattern-node target-node" transform="translate(375 355)">
+                  <circle r="48"></circle>
+                  <text class="pattern-root-text" y="5">&#956;<tspan baseline-shift="sub" font-size="13">2</tspan>(&#931;)</text>
+                </g>
+                <g class="pattern-node bridge-extra" transform="translate(515 260)">
+                  <circle r="38"></circle>
+                  <text class="pattern-side-text" y="5">&#956;<tspan baseline-shift="sub" font-size="11">3</tspan>(&#931;)</text>
+                </g>
+              </g>
+            </g>
+
+            <g id="one-step-view" class="one-step-view">
+              <path class="one-step-edge edge-mu1" d="M 338 222 C 306 194 276 172 252 156"></path>
+              <path class="one-step-edge edge-mu3" d="M 422 222 C 454 194 484 172 508 156"></path>
+              <path class="one-step-edge edge-mu2" d="M 380 308 C 380 334 380 358 380 382"></path>
+              <text class="one-step-edge-label label-mu1" x="296" y="184">&#956;<tspan baseline-shift="sub" font-size="12">1</tspan></text>
+              <text class="one-step-edge-label label-mu3" x="464" y="184">&#956;<tspan baseline-shift="sub" font-size="12">3</tspan></text>
+              <text class="one-step-edge-label label-mu2" x="406" y="346">&#956;<tspan baseline-shift="sub" font-size="12">2</tspan></text>
+
+              <g class="mini-seed root-mini-seed" transform="translate(380 260) scale(1.14)">
+                <text class="mini-seed-title" x="0" y="-60">&#931;</text>
+                <path class="mini-edge frozen-mini-edge" d="M -52 -24 L -36 -7"></path>
+                <path class="mini-edge" d="M -24 0 L -9 0"></path>
+                <path class="mini-edge" d="M 9 0 L 24 0"></path>
+                <rect class="mini-node mini-frozen" x="-70" y="-43" width="26" height="26"></rect>
+                <circle class="mini-node" cx="-36" cy="0" r="13"></circle>
+                <circle class="mini-node active" cx="0" cy="0" r="13"></circle>
+                <circle class="mini-node" cx="36" cy="0" r="13"></circle>
+                <text class="mini-node-text" x="-57" y="-26">x<tspan baseline-shift="sub" font-size="8">4</tspan></text>
+                <text class="mini-node-text" x="-36" y="4">x<tspan baseline-shift="sub" font-size="8">1</tspan></text>
+                <text class="mini-node-text" x="0" y="4">x<tspan baseline-shift="sub" font-size="8">2</tspan></text>
+                <text class="mini-node-text" x="36" y="4">x<tspan baseline-shift="sub" font-size="8">3</tspan></text>
+              </g>
+
+              <g class="mini-seed side-mini-seed seed-mu1" transform="translate(230 145) scale(0.9)">
+                <text class="mini-seed-title" x="0" y="-55">&#956;<tspan baseline-shift="sub" font-size="12">1</tspan>(&#931;)</text>
+                <path class="mini-edge frozen-mini-edge" d="M -36 -7 L -52 -24"></path>
+                <path class="mini-edge frozen-mini-edge" d="M -44 -24 L -12 -6"></path>
+                <path class="mini-edge" d="M -9 0 L -24 0"></path>
+                <path class="mini-edge" d="M 9 0 L 24 0"></path>
+                <rect class="mini-node mini-frozen" x="-70" y="-43" width="26" height="26"></rect>
+                <circle class="mini-node active" cx="-36" cy="0" r="13"></circle>
+                <circle class="mini-node" cx="0" cy="0" r="13"></circle>
+                <circle class="mini-node" cx="36" cy="0" r="13"></circle>
+                <text class="mini-node-text" x="-57" y="-26">x<tspan baseline-shift="sub" font-size="8">4</tspan></text>
+                <text class="mini-node-text" x="-36" y="4">x<tspan baseline-shift="sub" font-size="8">1</tspan>&#8242;</text>
+                <text class="mini-node-text" x="0" y="4">x<tspan baseline-shift="sub" font-size="8">2</tspan></text>
+                <text class="mini-node-text" x="36" y="4">x<tspan baseline-shift="sub" font-size="8">3</tspan></text>
+              </g>
+
+              <g class="mini-seed side-mini-seed seed-mu3" transform="translate(530 145) scale(0.9)">
+                <text class="mini-seed-title" x="0" y="-55">&#956;<tspan baseline-shift="sub" font-size="12">3</tspan>(&#931;)</text>
+                <path class="mini-edge frozen-mini-edge" d="M -52 -24 L -36 -7"></path>
+                <path class="mini-edge" d="M -24 0 L -9 0"></path>
+                <path class="mini-edge" d="M 24 0 L 9 0"></path>
+                <rect class="mini-node mini-frozen" x="-70" y="-43" width="26" height="26"></rect>
+                <circle class="mini-node" cx="-36" cy="0" r="13"></circle>
+                <circle class="mini-node" cx="0" cy="0" r="13"></circle>
+                <circle class="mini-node active" cx="36" cy="0" r="13"></circle>
+                <text class="mini-node-text" x="-57" y="-26">x<tspan baseline-shift="sub" font-size="8">4</tspan></text>
+                <text class="mini-node-text" x="-36" y="4">x<tspan baseline-shift="sub" font-size="8">1</tspan></text>
+                <text class="mini-node-text" x="0" y="4">x<tspan baseline-shift="sub" font-size="8">2</tspan></text>
+                <text class="mini-node-text" x="36" y="4">x<tspan baseline-shift="sub" font-size="8">3</tspan>&#8242;</text>
+              </g>
+
+              <g class="mini-seed side-mini-seed seed-mu2" transform="translate(380 405) scale(0.9)">
+                <text class="mini-seed-title" x="0" y="58">&#956;<tspan baseline-shift="sub" font-size="12">2</tspan>(&#931;)</text>
+                <path class="mini-edge frozen-mini-edge" d="M -52 -24 L -36 -7"></path>
+                <path class="mini-edge" d="M -9 0 L -24 0"></path>
+                <path class="mini-edge" d="M 24 0 L 9 0"></path>
+                <path class="mini-edge new-mini-edge" d="M -24 -10 C -5 -29 18 -29 24 -10"></path>
+                <rect class="mini-node mini-frozen" x="-70" y="-43" width="26" height="26"></rect>
+                <circle class="mini-node" cx="-36" cy="0" r="13"></circle>
+                <circle class="mini-node active" cx="0" cy="0" r="13"></circle>
+                <circle class="mini-node" cx="36" cy="0" r="13"></circle>
+                <text class="mini-node-text" x="-57" y="-26">x<tspan baseline-shift="sub" font-size="8">4</tspan></text>
+                <text class="mini-node-text" x="-36" y="4">x<tspan baseline-shift="sub" font-size="8">1</tspan></text>
+                <text class="mini-node-text" x="0" y="4">x<tspan baseline-shift="sub" font-size="8">2</tspan>&#8242;</text>
+                <text class="mini-node-text" x="36" y="4">x<tspan baseline-shift="sub" font-size="8">3</tspan></text>
+              </g>
+
+              <g class="regular-extra">
+                <path class="regular-edge" d="M 200 124 C 168 102 142 86 112 70"></path>
+                <path class="regular-edge" d="M 196 172 C 160 196 132 222 104 252"></path>
+                <path class="regular-edge" d="M 560 124 C 592 102 618 86 648 70"></path>
+                <path class="regular-edge" d="M 564 172 C 600 196 628 222 656 252"></path>
+                <path class="regular-edge" d="M 350 430 C 318 448 288 462 256 478"></path>
+                <path class="regular-edge" d="M 410 430 C 442 448 472 462 504 478"></path>
+                <circle class="regular-node" cx="104" cy="66" r="13"></circle>
+                <circle class="regular-node" cx="96" cy="260" r="13"></circle>
+                <circle class="regular-node" cx="656" cy="66" r="13"></circle>
+                <circle class="regular-node" cx="664" cy="260" r="13"></circle>
+                <circle class="regular-node" cx="246" cy="484" r="13"></circle>
+                <circle class="regular-node" cx="514" cy="484" r="13"></circle>
+                <text class="regular-dots" x="72" y="70">...</text>
+                <text class="regular-dots" x="68" y="268">...</text>
+                <text class="regular-dots" x="686" y="70">...</text>
+                <text class="regular-dots" x="692" y="268">...</text>
+                <text class="regular-dots" x="216" y="493">...</text>
+                <text class="regular-dots" x="544" y="493">...</text>
+              </g>
+            </g>
+
+            <g id="pattern-view" class="pattern-view">
+              <path class="pattern-edge" d="M 375 214 L 375 309"></path>
+              <path class="pattern-edge" d="M 334 196 L 257 246"></path>
+              <path class="pattern-edge" d="M 416 196 L 493 246"></path>
+              <text class="pattern-edge-label" x="394" y="262">&#956;<tspan baseline-shift="sub" font-size="13">2</tspan></text>
+              <text class="pattern-edge-label" x="290" y="221">&#956;<tspan baseline-shift="sub" font-size="13">1</tspan></text>
+              <text class="pattern-edge-label" x="460" y="221">&#956;<tspan baseline-shift="sub" font-size="13">3</tspan></text>
+
+              <path class="pattern-edge secondary" d="M 202 280 L 136 316"></path>
+              <path class="pattern-edge secondary" d="M 236 294 L 236 363"></path>
+              <path class="pattern-edge secondary" d="M 548 280 L 614 316"></path>
+              <path class="pattern-edge secondary" d="M 514 294 L 514 363"></path>
+              <path class="pattern-edge secondary" d="M 350 386 L 286 427"></path>
+              <path class="pattern-edge secondary" d="M 400 386 L 464 427"></path>
+
+              <g class="pattern-node pattern-root" transform="translate(375 160)">
+                <circle r="52"></circle>
+                <text y="5">&#931;</text>
+              </g>
+              <g class="pattern-node" transform="translate(235 260)">
+                <circle r="38"></circle>
+                <text class="pattern-side-text" y="5">&#956;<tspan baseline-shift="sub" font-size="11">1</tspan>(&#931;)</text>
+              </g>
+              <g class="pattern-node target-node" transform="translate(375 355)">
+                <circle r="48"></circle>
+                <text class="pattern-root-text" y="5">&#956;<tspan baseline-shift="sub" font-size="13">2</tspan>(&#931;)</text>
+              </g>
+              <g class="pattern-node" transform="translate(515 260)">
+                <circle r="38"></circle>
+                <text class="pattern-side-text" y="5">&#956;<tspan baseline-shift="sub" font-size="11">3</tspan>(&#931;)</text>
+              </g>
+              <g class="pattern-node small" transform="translate(116 326)">
+                <circle r="23"></circle>
+              </g>
+              <g class="pattern-node small" transform="translate(235 388)">
+                <circle r="23"></circle>
+              </g>
+              <g class="pattern-node small" transform="translate(634 326)">
+                <circle r="23"></circle>
+              </g>
+              <g class="pattern-node small" transform="translate(515 388)">
+                <circle r="23"></circle>
+              </g>
+              <g class="pattern-node small" transform="translate(262 442)">
+                <circle r="23"></circle>
+              </g>
+              <g class="pattern-node small" transform="translate(488 442)">
+                <circle r="23"></circle>
+              </g>
+
+              <text class="pattern-dots" x="86" y="340">...</text>
+              <text class="pattern-dots" x="235" y="424">...</text>
+              <text class="pattern-dots" x="664" y="340">...</text>
+              <text class="pattern-dots" x="515" y="424">...</text>
+              <text class="pattern-dots" x="230" y="463">...</text>
+              <text class="pattern-dots" x="520" y="463">...</text>
+              <g id="cluster-variable-labels" class="cluster-variable-labels">
+                <text class="cluster-var-label root-vars" x="375" y="92">
+                  x<tspan baseline-shift="sub" font-size="13">1</tspan>,
+                  x<tspan baseline-shift="sub" font-size="13">2</tspan>,
+                  x<tspan baseline-shift="sub" font-size="13">3</tspan>
+                </text>
+                <text class="cluster-var-label target-vars" x="375" y="422">
+                  x<tspan baseline-shift="sub" font-size="13">1</tspan>,
+                  x<tspan baseline-shift="sub" font-size="13">2</tspan><tspan baseline-shift="super" font-size="14">&#8242;</tspan>,
+                  x<tspan baseline-shift="sub" font-size="13">3</tspan>
+                </text>
+                <text class="cluster-var-label side-vars" x="151" y="246">
+                  x<tspan baseline-shift="sub" font-size="13">1</tspan><tspan baseline-shift="super" font-size="14">&#8242;</tspan>
+                </text>
+                <text class="cluster-var-label side-vars" x="600" y="246">
+                  x<tspan baseline-shift="sub" font-size="13">3</tspan><tspan baseline-shift="super" font-size="14">&#8242;</tspan>
+                </text>
+              </g>
+            </g>
+          </svg>
+          <div id="cluster-variable-display" class="cluster-variable-display">
+            \(x_1,x_2,x_3,x_2',x_1',x_3',\ldots\)
+          </div>
+          <div id="cluster-algebra-display" class="cluster-algebra-display">
+            <div class="cluster-algebra-main">
+              \(\calA(\Sigma)=\mathbb P[x_1,x_2,x_3,x_2',x_1',x_3',\ldots]\subset \mathfrak F\)
+            </div>
+          </div>
+        </section>
+
+        <aside class="text-panel" aria-live="polite">
+          <p id="step-kicker" class="step-kicker"></p>
+          <h1 id="step-title"></h1>
+          <div id="step-body" class="step-body"></div>
+        </aside>
+        </section>
+
+        <section id="comparison-slide" class="comparison-slide" aria-label="Comparing cluster structures">
+          <div class="comparison-text">
+            <p>
+              Cluster algebras were introduced by Fomin and Zelevinsky,
+              motivated by canonical bases and total positivity.
+            </p>
+            <p>
+              They now appear in many areas, including Lie theory,
+              representation theory, and algebraic geometry.
+            </p>
+            <p class="comparison-main-line">
+              In this talk, we compare two cluster algebra structures
+              from different origins.
+            </p>
+          </div>
+
+          <div class="comparison-structures" aria-label="Two cluster algebra structures">
+            <div class="structure-block">
+              <div class="structure-title">bosonic extension</div>
+            </div>
+            <div class="structure-divider">and</div>
+            <div class="structure-block">
+              <div class="structure-title">braid variety</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="bosonic-extension-slide" class="static-slide bosonic-slide" aria-label="Bosonic extension">
+          <div class="static-left setup-panel">
+            <div class="setup-grid">
+              <div>\(\mathfrak g\): Lie algebra of finite ADE type</div>
+              <div>\(I\): index set of simple roots</div>
+            </div>
+
+            <div class="dynkin-row" aria-label="A3 Dynkin diagram">
+              <span class="dynkin-label">\(A_3\)</span>
+              <span class="dynkin-node">1</span>
+              <span class="dynkin-edge"></span>
+              <span class="dynkin-node">2</span>
+              <span class="dynkin-edge"></span>
+              <span class="dynkin-node">3</span>
+            </div>
+          </div>
+
+          <div class="static-right">
+            <div class="definition-card">
+              <div class="definition-title">Definition</div>
+              <p>
+                The <span class="blue-term">bosonic extension</span>
+                \(\widehat{\calA}=\widehat{\calA}(\mathfrak g)\)
+                is the \(\mathbb Q(q^{1/2})\)-algebra with generators
+              </p>
+              <div class="math-display">
+                \[
+                  \{f_{i,p}\mid (i,p)\in I\times\mathbb Z\},
+                \]
+              </div>
+              <p>
+                subject to the
+                <span class="math-tooltip" tabindex="0">
+                  quantum Serre relations
+                  <span class="math-tooltip-panel">
+                    \[
+                      \sum_{t=0}^{1-c_{i,j}}
+                      (-1)^t
+                      \begin{bmatrix}1-c_{i,j}\\ t\end{bmatrix}_{q}
+                      f_{i,p}^{\,1-c_{i,j}-t}f_{j,p}f_{i,p}^{\,t}=0
+                      \quad (i\ne j).
+                    \]
+                  </span>
+                </span>
+                and the
+                <span class="math-tooltip math-tooltip-qboson" tabindex="0">
+                  \(q\)-Boson relation.
+                  <span class="math-tooltip-panel">
+                    <span class="tooltip-equation">
+                      <span>
+                        \(f_{i,m}f_{j,p}
+                        =
+                        q^{(-1)^{p-m+1}(\alpha_i,\alpha_j)}
+                        f_{j,p}f_{i,m}\)
+                      </span>
+                      <span>
+                        \({}+\delta_{i,j}\delta_{p,m+1}(1-q^2),
+                        \quad\text{if }m&lt;p.\)
+                      </span>
+                    </span>
+                  </span>
+                </span>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="braid-monoid-slide" class="static-slide single-column" aria-label="Positive braid">
+          <div class="single-column-content positive-braid-content">
+            <div class="positive-braid-grid">
+              <div class="definition-card positive-braid-card positive-braid-relations">
+                <div class="definition-title">Braid group</div>
+                <div class="positive-braid-formula">
+                  \[
+                    \Br
+                    =
+                    \left\langle
+                    \bg_i\ (i\in I)
+                    \ \middle|\ 
+                    \begin{array}{ll}
+                      \bg_i\bg_j=\bg_j\bg_i & i\not\sim j,\\[2pt]
+                      \bg_i\bg_j\bg_i=\bg_j\bg_i\bg_j & i\sim j
+                    \end{array}
+                    \right\rangle
+                  \]
+                </div>
+              </div>
+
+              <div class="definition-card positive-braid-card">
+                <div class="definition-title">Positive braid</div>
+                <div class="positive-braid-formula">
+                  \[
+                    \Br^{+}
+                    =
+                    \left\langle \bg_i\ (i\in I)\right\rangle_{\mathrm{mon}}
+                    \subset \Br
+                  \]
+                </div>
+              </div>
+
+              <div class="definition-card positive-braid-card positive-braid-word">
+                <div class="definition-title">Words</div>
+                <div class="positive-braid-formula">
+                  \[
+                    \uii=(i_1,\ldots,i_r)\in I^r
+                    \quad\leadsto\quad
+                    \bg_{\uii}:=\bg_{i_1}\cdots\bg_{i_r}
+                    \in\Br^{+}
+                  \]
+                </div>
+              </div>
+
+              <div class="definition-card positive-braid-card positive-braid-seq">
+                <div class="definition-title">Expression sequences</div>
+                <div class="positive-braid-formula">
+                  \[
+                    \Seq(\ttb)
+                    :=
+                    \left\{
+                    \uii=(i_1,\ldots,i_r)
+                    \ \middle|\ 
+                    \bg_{i_1}\cdots\bg_{i_r}=\ttb
+                    \right\},
+                    \qquad
+                    \ttb\in\Br^{+}.
+                  \]
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="algebra-slide" class="static-slide single-column" aria-label="The algebra obbA_C(ttb)">
+          <div class="single-column-content algebra-content algebra-flow-content">
+            <div class="algebra-context-line">
+              <span>\(\ttb\in\Br^{+}\)</span>
+              <span>\(\uii=(i_1,\ldots,i_r)\in\Seq(\ttb)\)</span>
+            </div>
+
+            <div class="definition-card algebra-flow-card">
+              <div class="definition-title">Braid symmetries</div>
+              <div class="math-display">
+                \[
+                  \TT_i\in\operatorname{Aut}_{\kk}(\hcalA),
+                  \qquad
+                  \{\TT_i\}_{i\in I}\text{ satisfies braid relations},
+                  \qquad
+                  \TT_{\ttb}:=\TT_{i_1}\cdots \TT_{i_r}.
+                \]
+              </div>
+            </div>
+
+            <div class="definition-card algebra-flow-card">
+              <div class="definition-title">The algebra \(\hcalA(\ttb)\) and PBW vectors</div>
+              <div class="math-display">
+                <div class="algebra-hcalA-display">
+                  <div class="algebra-hcalA-row">
+                    <span>\(\hcalA(\ttb):=\)</span>
+                    <span id="algebra-ge0-tooltip" class="math-tooltip algebra-subalgebra-tooltip" tabindex="0">
+                      \(\hcalA_{\ge0}\)
+                      <span class="math-tooltip-panel">
+                        \[
+                          \hcalA_{\ge0}:=
+                          \left\langle
+                          f_{i,p}\mid i\in I,\ p\ge0
+                          \right\rangle.
+                        \]
+                      </span>
+                    </span>
+                    <span>\(\cap\TT_{\ttb}(\)</span>
+                    <span id="algebra-lt0-tooltip" class="math-tooltip algebra-subalgebra-tooltip" tabindex="0">
+                      \(\hcalA_{<0}\)
+                      <span class="math-tooltip-panel">
+                        \[
+                          \hcalA_{<0}:=\hcalA_{\le -1}
+                          =
+                          \left\langle
+                          f_{i,p}\mid i\in I,\ p<0
+                          \right\rangle.
+                        \]
+                      </span>
+                    </span>
+                    <span>\()\)</span>
+                  </div>
+                  <div class="algebra-hcalA-row">
+                    <span>
+                      \(\FF_{\uii,t}:=
+                      q^{1/2}\TT_{i_1}\cdots \TT_{i_{t-1}}(f_{i_t,0})\).
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="definition-card algebra-flow-card algebra-emphasis-card">
+              <div class="definition-title">Specialization</div>
+              <div class="math-display">
+                <div class="algebra-specialization-display">
+                  <div class="algebra-specialization-row">
+                    <span>\(\obbA(\ttb):\)</span>
+                    <span id="algebra-specialization-tooltip" class="math-tooltip algebra-specialization-tooltip" tabindex="0">
+                      \(q^{1/2}=1\) specialization of \(\hcalA(\ttb)\)
+                      <span class="math-tooltip-panel">
+                        \[
+                          \obbA(\ttb):=
+                          \hcalA_{\Z[q^{\pm1/2}]}(\ttb)/
+                          (q^{1/2}-1)\hcalA_{\Z[q^{\pm1/2}]}(\ttb).
+                        \]
+                      </span>
+                    </span>
+                  </div>
+                  <div class="algebra-specialization-row">
+                    <span>\(\obbA_{\C}(\ttb):=\C\otimes_{\Z}\obbA(\ttb)\).</span>
+                  </div>
+                  <div class="algebra-specialization-row">
+                    <span>\(\bFF_{\uii,t}:=\FF_{\uii,t}\big|_{q^{1/2}=1}\).</span>
+                  </div>
+                  <div class="algebra-specialization-row algebra-polynomial-row">
+                    <span>
+                      Polynomial ring realization:
+                      \(\obbA_{\C}(\ttb)\cong
+                      \C[\bFF_{\uii,1},\ldots,\bFF_{\uii,r}]\).
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="ibox-slide" class="static-slide" aria-label="i-boxes">
+          <div class="static-left">
+            <div class="word-title">\(\uii=(2,3,1,2,2,1)\)</div>
+            <div class="word-box-row">
+              <span class="word-pos">1</span><span class="word-pos">2</span><span class="word-pos">3</span>
+              <span class="word-pos">4</span><span class="word-pos">5</span><span class="word-pos">6</span>
+              <span class="letter-box ibox-range ibox-endpoint">2</span><span class="letter-box ibox-range">3</span><span class="letter-box ibox-range">1</span>
+              <span class="letter-box ibox-range ibox-endpoint">2</span><span class="letter-box">2</span><span class="letter-box">1</span>
+            </div>
+            <div class="ibox-bracket one-four">\( \mathfrak c=[1,4]\)</div>
+          </div>
+
+          <div class="static-right">
+            <ul class="big-list">
+              <li>Fix \(\uii=(i_1,\ldots,i_r)\in\Seq(\ttb)\).</li>
+              <li>
+                An interval \(\mathfrak c=[a,b]\subseteq[1,r]\) is an
+                <span class="blue-term">\(i\)-box</span> of \(\uii\)
+                if \(a\le b\) and \(i_a=i_b\).
+              </li>
+              <li>
+                For an \(i\)-box \(\mathfrak c=[a,b]\), there is a distinguished element
+                \[
+                  \mD([a,b])\in\obbA(\ttb).
+                \]
+              </li>
+              <li>
+                For a singleton box,
+                \[
+                  \mD([t,t])=\bFF_{\uii,t}.
+                \]
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="localization-slide" class="static-slide" aria-label="Localization">
+          <div class="static-left localization-visual">
+            <div class="word-title">\(\uii=(2,3,1,2,2,1)\)</div>
+            <div class="localization-diagram">
+              <div class="localization-word">
+                <span class="word-pos">1</span><span class="word-pos">2</span><span class="word-pos">3</span>
+                <span class="word-pos">4</span><span class="word-pos">5</span><span class="word-pos">6</span>
+                <span class="letter-box">2</span><span class="letter-box">3</span><span class="letter-box">1</span>
+                <span class="letter-box">2</span><span class="letter-box">2</span><span class="letter-box">1</span>
+              </div>
+              <div class="local-bracket local-f1">
+                <span>\(\rmF_1=\mD([3,6])\)</span>
+              </div>
+              <div class="local-bracket local-f2">
+                <span>\(\rmF_2=\mD([1,5])\)</span>
+              </div>
+              <div class="local-bracket local-f3">
+                <span>\(\rmF_3=\mD([2,2])\)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="static-right">
+            <ul class="big-list">
+              <li>
+                For \(i\in I\), set
+                \[
+                  \rmF_i:=
+                  \mD([\text{first }i,\text{ last }i]).
+                \]
+              </li>
+              <li>
+                Localize by these elements, let
+                \[
+                  \boxed{
+                  \tobbA_{\C}(\ttb):=
+                  \obbA_{\C}(\ttb)
+                  [\rmF_i^{-1}\mid i\in I]
+                  }.
+                \]
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="admissible-chain-slide" class="static-slide" aria-label="Admissible chain">
+          <div class="static-left chain-visual">
+            <div class="chain-head">
+              <span>\(\boldsymbol i=(2,3,1,2,2,1)\)</span>
+              <span class="chain-h-sequence">
+                \(\mathfrak H=(\)
+                <span class="chain-h-token chain-h-1">\(\mathcal L\)</span><span>,</span>
+                <span class="chain-h-token chain-h-2">\(\mathcal R\)</span><span>,</span>
+                <span class="chain-h-token chain-h-3">\(\mathcal L\)</span><span>,</span>
+                <span class="chain-h-token chain-h-4">\(\mathcal R\)</span><span>,</span>
+                <span class="chain-h-token chain-h-5">\(\mathcal R\)</span>
+                \()\)
+              </span>
+            </div>
+            <div class="chain-row chain-row-1">
+              <span class="chain-step-label">\(c=3\)</span>
+              <span class="chain-cells">
+                <span class="chain-letter">2</span>
+                <span class="chain-letter">3</span>
+                <span class="chain-letter env box endpoint">1</span>
+                <span class="chain-letter">2</span>
+                <span class="chain-letter">2</span>
+                <span class="chain-letter">1</span>
+              </span>
+              <span class="chain-box-label">\(\mathfrak c_1=[3,3]\)</span>
+            </div>
+            <div class="chain-row chain-row-2">
+              <span class="chain-step-label">\(\mathcal L\)</span>
+              <span class="chain-cells">
+                <span class="chain-letter">2</span>
+                <span class="chain-letter env box endpoint">3</span>
+                <span class="chain-letter env">1</span>
+                <span class="chain-letter">2</span>
+                <span class="chain-letter">2</span>
+                <span class="chain-letter">1</span>
+              </span>
+              <span class="chain-box-label">\(\mathfrak c_2=[2,2]\)</span>
+            </div>
+            <div class="chain-row chain-row-3">
+              <span class="chain-step-label">\(\mathcal R\)</span>
+              <span class="chain-cells">
+                <span class="chain-letter">2</span>
+                <span class="chain-letter env">3</span>
+                <span class="chain-letter env">1</span>
+                <span class="chain-letter env box endpoint">2</span>
+                <span class="chain-letter">2</span>
+                <span class="chain-letter">1</span>
+              </span>
+              <span class="chain-box-label">\(\mathfrak c_3=[4,4]\)</span>
+            </div>
+            <div class="chain-row chain-row-4">
+              <span class="chain-step-label">\(\mathcal L\)</span>
+              <span class="chain-cells">
+                <span class="chain-letter env box endpoint">2</span>
+                <span class="chain-letter env box">3</span>
+                <span class="chain-letter env box">1</span>
+                <span class="chain-letter env box">2</span>
+                <span class="chain-letter">2</span>
+                <span class="chain-letter">1</span>
+              </span>
+              <span class="chain-box-label">\(\mathfrak c_4=[1,4]\)</span>
+            </div>
+            <div class="chain-row chain-row-5">
+              <span class="chain-step-label">\(\mathcal R\)</span>
+              <span class="chain-cells">
+                <span class="chain-letter env box">2</span>
+                <span class="chain-letter env box">3</span>
+                <span class="chain-letter env box">1</span>
+                <span class="chain-letter env box">2</span>
+                <span class="chain-letter env box endpoint">2</span>
+                <span class="chain-letter">1</span>
+              </span>
+              <span class="chain-box-label">\(\mathfrak c_5=[1,5]\)</span>
+            </div>
+            <div class="chain-row chain-row-6">
+              <span class="chain-step-label">\(\mathcal R\)</span>
+              <span class="chain-cells">
+                <span class="chain-letter env">2</span>
+                <span class="chain-letter env">3</span>
+                <span class="chain-letter env box">1</span>
+                <span class="chain-letter env box">2</span>
+                <span class="chain-letter env box">2</span>
+                <span class="chain-letter env box endpoint">1</span>
+              </span>
+              <span class="chain-box-label">\(\mathfrak c_6=[3,6]\)</span>
+            </div>
+          </div>
+
+          <div class="static-right">
+            <ul class="big-list chain-rules">
+              <li class="chain-rule chain-rule-input">
+                Fix a word
+                \[
+                  \uii=(i_1,\ldots,i_r)\in\Seq(\ttb).
+                \]
+              </li>
+              <li class="chain-rule chain-rule-start">
+                LR sequence:
+                \[
+                  \mathfrak H=(\mathcal H_1,\ldots,\mathcal H_{r-1})
+                  \in\{\mathcal L,\mathcal R\}^{r-1}.
+                \]
+                \[
+                  c:=\#\mathcal L+1.
+                \]
+              </li>
+              <li class="chain-rule chain-rule-read">
+                Horizontal moves:
+                \[
+                  \mathcal L:\text{ left move},
+                  \qquad
+                  \mathcal R:\text{ right move}.
+                \]
+              </li>
+              <li class="chain-rule chain-rule-box">
+                Admissible chain:
+                \[
+                  \mathfrak c_t
+                  =\text{maximal \(i\)-box containing the new endpoint}.
+                \]
+                \[
+                  \boxed{\mathfrak C=(\mathfrak c_1,\ldots,\mathfrak c_r)}
+                \]
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="seed-chain-slide" class="static-slide" aria-label="Seed from an admissible chain">
+          <div class="static-left">
+            <div class="seed-source-chain chain-visual" aria-label="Admissible chain i-boxes">
+              <div class="chain-row chain-row-1">
+                <span class="chain-step-label"></span>
+                <span class="chain-cells">
+                  <span class="chain-letter">2</span>
+                  <span class="chain-letter">3</span>
+                  <span class="chain-letter env box">1</span>
+                  <span class="chain-letter">2</span>
+                  <span class="chain-letter">2</span>
+                  <span class="chain-letter">1</span>
+                </span>
+                <span class="chain-box-label">\(\mathfrak c_1=[3,3]\)</span>
+              </div>
+              <div class="chain-row chain-row-2">
+                <span class="chain-step-label">\(\mathcal L\)</span>
+                <span class="chain-cells">
+                  <span class="chain-letter">2</span>
+                  <span class="chain-letter env box">3</span>
+                  <span class="chain-letter env">1</span>
+                  <span class="chain-letter">2</span>
+                  <span class="chain-letter">2</span>
+                  <span class="chain-letter">1</span>
+                </span>
+                <span class="chain-box-label">\(\mathfrak c_2=[2,2]\)</span>
+              </div>
+              <div class="chain-row chain-row-3">
+                <span class="chain-step-label">\(\mathcal R\)</span>
+                <span class="chain-cells">
+                  <span class="chain-letter">2</span>
+                  <span class="chain-letter env">3</span>
+                  <span class="chain-letter env">1</span>
+                  <span class="chain-letter env box">2</span>
+                  <span class="chain-letter">2</span>
+                  <span class="chain-letter">1</span>
+                </span>
+                <span class="chain-box-label">\(\mathfrak c_3=[4,4]\)</span>
+              </div>
+              <div class="chain-row chain-row-4">
+                <span class="chain-step-label">\(\mathcal L\)</span>
+                <span class="chain-cells">
+                  <span class="chain-letter env box">2</span>
+                  <span class="chain-letter env box">3</span>
+                  <span class="chain-letter env box">1</span>
+                  <span class="chain-letter env box">2</span>
+                  <span class="chain-letter">2</span>
+                  <span class="chain-letter">1</span>
+                </span>
+                <span class="chain-box-label">\(\mathfrak c_4=[1,4]\)</span>
+              </div>
+              <div class="chain-row chain-row-5">
+                <span class="chain-step-label">\(\mathcal R\)</span>
+                <span class="chain-cells">
+                  <span class="chain-letter env box">2</span>
+                  <span class="chain-letter env box">3</span>
+                  <span class="chain-letter env box">1</span>
+                  <span class="chain-letter env box">2</span>
+                  <span class="chain-letter env box">2</span>
+                  <span class="chain-letter">1</span>
+                </span>
+                <span class="chain-box-label">\(\mathfrak c_5=[1,5]\)</span>
+              </div>
+              <div class="chain-row chain-row-6">
+                <span class="chain-step-label">\(\mathcal R\)</span>
+                <span class="chain-cells">
+                  <span class="chain-letter env">2</span>
+                  <span class="chain-letter env">3</span>
+                  <span class="chain-letter env box">1</span>
+                  <span class="chain-letter env box">2</span>
+                  <span class="chain-letter env box">2</span>
+                  <span class="chain-letter env box">1</span>
+                </span>
+                <span class="chain-box-label">\(\mathfrak c_6=[3,6]\)</span>
+              </div>
+            </div>
+            <div class="seed-chain-down-arrow" aria-hidden="true"></div>
+            <div class="seed-quiver-html" role="img" aria-label="Seed from admissible chain">
+              <svg class="seed-chain-svg" viewBox="0 0 560 430" aria-hidden="true">
+                <defs>
+                  <marker id="seed-arrow" markerWidth="7" markerHeight="7" refX="6.1" refY="3.5" orient="auto" markerUnits="strokeWidth">
+                    <path d="M 0 0 L 7 3.5 L 0 7 z"></path>
+                  </marker>
+                </defs>
+                <path class="seed-chain-edge" d="M 198 209 L 267 170"></path>
+                <path class="seed-chain-edge" d="M 330 168 L 391 207"></path>
+                <path class="seed-chain-edge" d="M 380 239 L 214 239"></path>
+                <path class="seed-chain-edge" d="M 198 269 L 242 327"></path>
+                <path class="seed-chain-edge" d="M 459 141 L 348 138"></path>
+                <path class="seed-chain-edge" d="M 453 209 L 459 165"></path>
+                <path class="seed-chain-edge" d="M 358 327 L 391 271"></path>
+                <path class="seed-chain-edge" d="M 116 290 L 135 271"></path>
+              </svg>
+              <div class="seed-node-html mutable" style="left:53.57%;top:32.09%;">
+                <span class="seed-c-label">\(\mathfrak c_3\)</span>
+                <span class="seed-d-label">\(\mD(\frakc_3)\)</span>
+              </div>
+              <div class="seed-node-html mutable" style="left:30.00%;top:55.58%;">
+                <span class="seed-c-label">\(\mathfrak c_1\)</span>
+                <span class="seed-d-label">\(\mD(\frakc_1)\)</span>
+              </div>
+              <div class="seed-node-html mutable" style="left:75.54%;top:55.58%;">
+                <span class="seed-c-label">\(\mathfrak c_4\)</span>
+                <span class="seed-d-label">\(\mD(\frakc_4)\)</span>
+              </div>
+              <div class="seed-node-html frozen" style="left:10.36%;top:73.02%;">
+                <span class="seed-c-label">\(\mathfrak c_6\)</span>
+                <span class="seed-d-label">\(\mD(\frakc_6)\)</span>
+              </div>
+              <div class="seed-node-html frozen" style="left:92.32%;top:32.79%;">
+                <span class="seed-c-label">\(\mathfrak c_2\)</span>
+                <span class="seed-d-label">\(\mD(\frakc_2)\)</span>
+              </div>
+              <div class="seed-node-html frozen" style="left:53.57%;top:81.63%;">
+                <span class="seed-c-label">\(\mathfrak c_5\)</span>
+                <span class="seed-d-label">\(\mD(\frakc_5)\)</span>
+              </div>
+              <div class="seed-d-line">
+                \(\seed(\frakC)=
+                \bigl(\mD(\frakC),Q(\frakC)\bigr)\)
+              </div>
+            </div>
+          </div>
+
+          <div class="static-right">
+            <ul class="big-list seed-rules">
+              <li class="seed-rule seed-rule-chain">
+                Fix \(\uii\in\Seq(\ttb)\).
+                \[
+                  \frakC=(\frakc_t)_{t\in[1,r]}
+                \]
+                is an admissible chain associated with \(\uii\).
+              </li>
+              <li class="seed-rule seed-rule-quiver">
+                A combinatorial rule produces a quiver
+                \(Q(\frakC)\).
+              </li>
+              <li class="seed-rule seed-rule-d">
+                Put \(\mD(\frakc_t)\) at each vertex:
+                \[
+                  \mD(\frakC)=
+                  \{\mD(\frakc_t)\mid t\in[1,r]\}.
+                \]
+              </li>
+            </ul>
+            <div class="theorem-card seed-theorem-card">
+              <div class="definition-title">Theorem (Kashiwara-Kim-Oh-Park)</div>
+              <div>
+                For \(\uii\in\Seq(\ttb)\) and an admissible chain
+                \(\frakC\) associated with \(\uii\), set
+                \[
+                  \seed(\frakC):=
+                  (\mD(\frakC),Q(\frakC)).
+                \]
+                Then
+                \[
+                  \cA(\seed(\frakC))
+                  \simeq
+                  \tobbA_{\C}(\ttb).
+                \]
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="braid-variety-setup-slide" class="static-slide single-column dense-slide" aria-label="Braid variety">
+          <div class="single-column-content braid-onepage-content">
+            <div class="braid-compact-block">
+              <div class="definition-title">Setup</div>
+              <div>
+                \[
+                  \sfG:\text{ simply connected simple algebraic group},
+                  \qquad
+                  \sfB\subset\sfG:\text{ Borel subgroup}.
+                \]
+                \[
+                  \weyl=\langle s_i\mid i\in I\rangle.
+                \]
+              </div>
+            </div>
+
+            <div class="braid-compact-block">
+              <div class="definition-title">Relative position</div>
+              <div>
+                For \(x\sfB,y\sfB\in\sfG/\sfB\),
+                \[
+                  x\sfB\xrightarrow{\,w\,}y\sfB
+                  \quad\Longleftrightarrow\quad
+                  x^{-1}y\in\sfB w\sfB.
+                \]
+              </div>
+            </div>
+
+            <div class="braid-compact-block">
+              <div class="definition-title">Demazure product</div>
+              <div>
+                \(\delta:\Br^+\to\weyl\).
+                Read the word left to right; multiply by \(s_i\) only if the length increases.
+                Example in \(A_2\):
+                \[
+                  \begin{aligned}
+                    \delta(\sigma_1)&=s_1,
+                    &
+                    \delta(\sigma_1\sigma_2)&=s_1s_2,
+                    \\
+                    \delta(\sigma_1\sigma_2\sigma_1)&=w_\circ,
+                    &
+                    \delta(\sigma_1\sigma_2\sigma_1\sigma_2)&=w_\circ .
+                  \end{aligned}
+                \]
+              </div>
+            </div>
+
+            <div class="definition-card braid-definition-card">
+              <div class="definition-title">Braid variety</div>
+              <div>
+                Let \(\uii=(i_1,\ldots,i_r)\in\Seq(\ttb)\).
+                \[
+                  X(\uii):=
+                  \left\{
+                  (\sfB_0,\ldots,\sfB_r)\in(\sfG/\sfB)^{r+1}
+                  \;\middle|\;
+                  \begin{array}{l}
+                  \sfB_0=\sfB,\quad
+                  \sfB_r=\delta(\ttb)\sfB,\\[2pt]
+                  \sfB_{t-1}\xrightarrow{s_{i_t}}\sfB_t
+                  \quad(1\le t\le r)
+                  \end{array}
+                  \right\}.
+                \]
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="braid-variety-properties-slide" class="static-slide single-column dense-slide" aria-label="Affine coordinates on braid varieties">
+          <div class="single-column-content braid-onepage-content">
+            <div class="definition-card braid-definition-card">
+              <div class="definition-title">Braid varieties</div>
+              <p class="braid-left-text">
+                Braid varieties generalize important families such as open Richardson
+                varieties and double Bott-Samelson varieties.
+              </p>
+            </div>
+
+            <div class="braid-compact-block">
+              <div class="definition-title">Affine realization</div>
+              <div>
+                <p class="braid-left-text">
+                  For \(\uii=(i_1,\ldots,i_r)\in\Seq(\ttb)\),
+                </p>
+                \[
+                  X(\uii)\cong
+                  \text{a subvariety of }\C^r.
+                \]
+              </div>
+            </div>
+
+            <div class="braid-compact-block">
+              <div class="definition-title">Coordinate functions</div>
+              <div>
+                \[
+                  z_t\in\C[X(\uii)]
+                  \qquad(1\le t\le r)
+                \]
+                <p class="braid-left-text">
+                  is the \(t\)-th coordinate function restricted from \(\C^r\).
+                </p>
+                \[
+                  z_t
+                  \longleftrightarrow
+                  \text{the letter }i_t\text{ of }\uii.
+                \]
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="weaves-slide" class="static-slide single-column weave-slide" aria-label="Weaves">
+          <div class="single-column-content weave-native-content">
+            <ul class="source-list compact-source-list native-weave-list">
+              <li>A <span class="blue-term">Demazure weave</span> \(\fW\) is a planar graph with edges labeled by \(I\).</li>
+              <li>Allowed local vertices:</li>
+            </ul>
+            <div class="weave-vertex-figure" aria-label="Allowed local vertices">
+              <svg viewBox="0 0 980 310" role="img">
+                <g class="weave-panel" transform="translate(72 22)">
+                  <text x="110" y="20">6-valent</text>
+                  <text class="strand-label blue-text" x="22" y="64">i</text>
+                  <text class="strand-label red-text" x="110" y="64">j</text>
+                  <text class="strand-label blue-text" x="198" y="64">i</text>
+                  <text class="strand-label red-text" x="22" y="246">j</text>
+                  <text class="strand-label blue-text" x="110" y="246">i</text>
+                  <text class="strand-label red-text" x="198" y="246">j</text>
+                  <path class="strand blue-strand" d="M 30 78 C 62 122 86 138 110 156"></path>
+                  <path class="strand red-strand" d="M 110 78 C 110 114 110 136 110 156"></path>
+                  <path class="strand blue-strand" d="M 190 78 C 158 122 134 138 110 156"></path>
+                  <path class="strand red-strand" d="M 30 226 C 62 190 86 174 110 156"></path>
+                  <path class="strand blue-strand" d="M 110 226 C 110 196 110 174 110 156"></path>
+                  <path class="strand red-strand" d="M 190 226 C 158 190 134 174 110 156"></path>
+                  <circle class="vertex-dot small-dot" cx="110" cy="156" r="5"></circle>
+                </g>
+                <g class="weave-panel" transform="translate(382 22)">
+                  <text x="110" y="20">4-valent</text>
+                  <text class="strand-label blue-text" x="40" y="64">i</text>
+                  <text class="strand-label green-text" x="180" y="64">k</text>
+                  <text class="strand-label green-text" x="40" y="246">k</text>
+                  <text class="strand-label blue-text" x="180" y="246">i</text>
+                  <path class="strand blue-strand" d="M 42 78 C 72 124 92 142 110 156 C 130 174 150 198 178 226"></path>
+                  <path class="strand green-strand" d="M 178 78 C 148 124 128 142 110 156 C 90 174 70 198 42 226"></path>
+                  <circle class="vertex-dot small-dot" cx="110" cy="156" r="5"></circle>
+                </g>
+                <g class="weave-panel" transform="translate(692 22)">
+                  <text x="110" y="20">3-valent</text>
+                  <text class="strand-label blue-text" x="42" y="64">i</text>
+                  <text class="strand-label blue-text" x="178" y="64">i</text>
+                  <text class="strand-label blue-text" x="110" y="246">i</text>
+                  <path class="strand blue-strand" d="M 48 78 C 76 122 94 140 110 156"></path>
+                  <path class="strand blue-strand" d="M 172 78 C 144 122 126 140 110 156"></path>
+                  <path class="strand blue-strand" d="M 110 226 C 110 194 110 174 110 156"></path>
+                  <circle class="vertex-dot filled-dot" cx="110" cy="156" r="6"></circle>
+                </g>
+              </svg>
+              <div class="weave-vertex-caption-row">
+                <div>6-valent <span>(braid move)</span></div>
+                <div>4-valent <span>(commutation move)</span></div>
+                <div>3-valent <span>(Demazure move)</span></div>
+              </div>
+            </div>
+            <p class="weave-note">Here \(j\) is adjacent to \(i\), while \(k\) is not adjacent to \(i\).</p>
+          </div>
+        </section>
+
+        <section id="weave-example-slide" class="static-slide single-column weave-slide" aria-label="Demazure weave example">
+          <div class="single-column-content weave-example-native weave-example-variant paper-example">
+            <div class="demazure-example-figure" aria-label="Example of a Demazure weave">
+              <svg class="demazure-example-tex-svg" viewBox="0 0 500 392" role="img">
+                <g class="top-word">
+                  <text x="60" y="59">1</text><text x="130" y="59">2</text><text x="200" y="59">1</text>
+                  <text x="270" y="59">3</text><text x="340" y="59">1</text><text x="410" y="59">1</text>
+                </g>
+                <g class="bottom-word">
+                  <text x="60" y="360">2</text><text x="130" y="360">1</text><text x="200" y="360">2</text>
+                  <text x="270" y="360">1</text><text x="375" y="360">3</text>
+                </g>
+                <g class="tex-weave-paths" transform="translate(60 360) scale(70 -70)">
+                  <path class="tex-strand tex-blue-strand" d="M 0 4.05 C 0.25 3.65 0.62 3.32 1 3.05"></path>
+                  <path class="tex-strand tex-red-strand" d="M 1 4.05 C 1 3.65 1 3.32 1 3.05"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 2 4.05 C 1.75 3.65 1.38 3.32 1 3.05"></path>
+                  <path class="tex-strand tex-red-strand" d="M 0 2.35 C 0.28 2.62 0.62 2.85 1 3.05"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 1 2.35 C 1 2.65 1 2.88 1 3.05"></path>
+                  <path class="tex-strand tex-red-strand" d="M 2 2.35 C 1.72 2.62 1.38 2.85 1 3.05"></path>
+                  <circle class="tex-move-dot" cx="1" cy="3.05" r="0.065"></circle>
+
+                  <path class="tex-strand tex-red-strand" d="M 0 2.35 C 0 1.65 0 0.85 0 0.25"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 1 2.35 C 1 1.65 1 0.85 1 0.25"></path>
+                  <path class="tex-strand tex-red-strand" d="M 2 2.35 C 2 1.65 2 0.85 2 0.25"></path>
+
+                  <path class="tex-strand tex-blue-strand" d="M 4 4.05 C 4.15 3.60 4.32 3.30 4.50 3.05"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 5 4.05 C 4.85 3.60 4.68 3.30 4.50 3.05"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 4.50 2.35 C 4.50 2.65 4.50 2.88 4.50 3.05"></path>
+                  <circle class="tex-triangle-dot" cx="4.50" cy="3.05" r="0.085"></circle>
+
+                  <path class="tex-strand tex-green-strand" d="M 3 4.05 C 3 3.35 3 2.80 3 2.35"></path>
+                  <path class="tex-strand tex-green-strand" d="M 3 2.35 C 3.18 1.85 3.43 1.50 3.75 1.20 C 4.05 0.92 4.30 0.55 4.50 0.25"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 4.50 2.35 C 4.32 1.85 4.07 1.50 3.75 1.20 C 3.45 0.92 3.20 0.55 3 0.25"></path>
+                  <circle class="tex-move-dot" cx="3.75" cy="1.20" r="0.065"></circle>
+                </g>
+                <text class="vertex-label tex-vertex-label" x="146" y="135">6-valent</text>
+                <text class="vertex-label tex-vertex-label" x="390" y="138">3-valent</text>
+                <text class="vertex-label tex-vertex-label" x="339" y="278">4-valent</text>
+              </svg>
+            </div>
+            <ul class="source-list compact-source-list">
+              <li>
+                If the top boundary word is \(\uii\) and the bottom boundary word is \(\ujj\),
+                we write \(\fW:\uii\to\ujj\).
+              </li>
+              <li>
+                A Demazure weave
+                \[
+                  \fW:(1,2,1,3,1,1)\longrightarrow(2,1,2,1,3).
+                \]
+              </li>
+            </ul>
+          </div>
+          <div class="single-column-content weave-example-native weave-example-variant default-example">
+            <div class="demazure-example-figure default-example-figure" aria-label="Default visualizer example of a Demazure weave">
+              <svg class="demazure-example-tex-svg default-weave-svg" viewBox="0 0 760 526" role="img">
+                <g class="top-word default-top-word">
+                  <text x="149.0" y="30">2</text>
+                  <text x="191.0" y="30">1</text>
+                  <text x="233.0" y="30">1</text>
+                  <text x="275.0" y="30">2</text>
+                  <text x="317.0" y="30">1</text>
+                  <text x="359.0" y="30">3</text>
+                  <text x="401.0" y="30">2</text>
+                  <text x="443.0" y="30">1</text>
+                  <text x="485.0" y="30">1</text>
+                  <text x="527.0" y="30">2</text>
+                  <text x="569.0" y="30">2</text>
+                  <text x="611.0" y="30">1</text>
+                </g>
+                <g class="bottom-word default-bottom-word">
+                  <text x="275.0" y="514.0">1</text>
+                  <text x="317.0" y="514.0">2</text>
+                  <text x="359.0" y="514.0">3</text>
+                  <text x="401.0" y="514.0">1</text>
+                  <text x="443.0" y="514.0">2</text>
+                  <text x="485.0" y="514.0">1</text>
+                </g>
+                <g class="tex-weave-paths default-weave-paths">
+                  <path class="tex-strand tex-red-strand" d="M 149.0 58.0 C 149.0 72.0, 149.0 72.0, 149.0 86.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 191.0 58.0 C 191.0 72.0, 191.0 72.0, 191.0 86.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 233.0 58.0 C 233.0 72.0, 233.0 72.0, 233.0 86.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 275.0 58.0 C 275.0 72.0, 275.0 72.0, 275.0 86.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 317.0 58.0 C 317.0 72.0, 359.0 72.0, 359.0 86.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 359.0 58.0 C 359.0 72.0, 317.0 72.0, 317.0 86.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 58.0 C 401.0 72.0, 401.0 72.0, 401.0 86.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 443.0 58.0 C 443.0 72.0, 443.0 72.0, 443.0 86.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 485.0 58.0 C 485.0 72.0, 485.0 72.0, 485.0 86.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 527.0 58.0 C 527.0 72.0, 527.0 72.0, 527.0 86.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 569.0 58.0 C 569.0 72.0, 569.0 72.0, 569.0 86.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 611.0 58.0 C 611.0 72.0, 611.0 72.0, 611.0 86.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 149.0 86.0 C 149.0 100.0, 170.0 100.0, 170.0 114.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 191.0 86.0 C 191.0 100.0, 212.0 100.0, 212.0 114.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 233.0 86.0 C 233.0 100.0, 254.0 100.0, 254.0 114.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 275.0 86.0 C 275.0 100.0, 296.0 100.0, 296.0 114.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 317.0 86.0 C 317.0 100.0, 338.0 100.0, 338.0 114.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 359.0 86.0 C 359.0 100.0, 380.0 100.0, 380.0 114.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 86.0 C 401.0 100.0, 422.0 100.0, 422.0 114.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 443.0 86.0 C 443.0 93.0, 464.0 93.0, 464.0 100.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 485.0 86.0 C 485.0 93.0, 464.0 93.0, 464.0 100.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 464.0 100.0 C 464.0 107.0, 464.0 107.0, 464.0 114.0"></path>
+                  <circle class="tex-triangle-dot" cx="464.0" cy="100.0" r="4.2"></circle>
+                  <path class="tex-strand tex-red-strand" d="M 527.0 86.0 C 527.0 100.0, 506.0 100.0, 506.0 114.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 569.0 86.0 C 569.0 100.0, 548.0 100.0, 548.0 114.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 611.0 86.0 C 611.0 100.0, 590.0 100.0, 590.0 114.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 170.0 114.0 C 170.0 128.0, 191.0 128.0, 191.0 142.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 212.0 114.0 C 212.0 121.0, 233.0 121.0, 233.0 128.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 254.0 114.0 C 254.0 121.0, 233.0 121.0, 233.0 128.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 233.0 128.0 C 233.0 135.0, 233.0 135.0, 233.0 142.0"></path>
+                  <circle class="tex-triangle-dot" cx="233.0" cy="128.0" r="4.2"></circle>
+                  <path class="tex-strand tex-red-strand" d="M 296.0 114.0 C 296.0 128.0, 275.0 128.0, 275.0 142.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 338.0 114.0 C 338.0 128.0, 317.0 128.0, 317.0 142.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 380.0 114.0 C 380.0 128.0, 359.0 128.0, 359.0 142.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 422.0 114.0 C 422.0 128.0, 401.0 128.0, 401.0 142.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 464.0 114.0 C 464.0 128.0, 443.0 128.0, 443.0 142.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 506.0 114.0 C 506.0 128.0, 485.0 128.0, 485.0 142.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 548.0 114.0 C 548.0 128.0, 527.0 128.0, 527.0 142.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 590.0 114.0 C 590.0 128.0, 569.0 128.0, 569.0 142.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 191.0 142.0 C 191.0 156.0, 191.0 156.0, 191.0 170.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 233.0 142.0 C 233.0 156.0, 233.0 156.0, 233.0 170.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 275.0 142.0 C 275.0 156.0, 275.0 156.0, 275.0 170.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 317.0 142.0 C 317.0 156.0, 317.0 156.0, 317.0 170.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 359.0 142.0 C 359.0 149.0, 401.0 149.0, 401.0 156.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 156.0 C 401.0 163.0, 359.0 163.0, 359.0 170.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 142.0 C 401.0 149.0, 401.0 149.0, 401.0 156.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 401.0 156.0 C 401.0 163.0, 401.0 163.0, 401.0 170.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 443.0 142.0 C 443.0 149.0, 401.0 149.0, 401.0 156.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 156.0 C 401.0 163.0, 443.0 163.0, 443.0 170.0"></path>
+                  <circle class="tex-move-dot" cx="401.0" cy="156.0" r="3.2"></circle>
+                  <path class="tex-strand tex-red-strand" d="M 485.0 142.0 C 485.0 156.0, 485.0 156.0, 485.0 170.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 527.0 142.0 C 527.0 156.0, 527.0 156.0, 527.0 170.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 569.0 142.0 C 569.0 156.0, 569.0 156.0, 569.0 170.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 191.0 170.0 C 191.0 184.0, 212.0 184.0, 212.0 198.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 233.0 170.0 C 233.0 184.0, 254.0 184.0, 254.0 198.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 275.0 170.0 C 275.0 184.0, 296.0 184.0, 296.0 198.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 317.0 170.0 C 317.0 184.0, 338.0 184.0, 338.0 198.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 359.0 170.0 C 359.0 184.0, 380.0 184.0, 380.0 198.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 401.0 170.0 C 401.0 184.0, 422.0 184.0, 422.0 198.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 443.0 170.0 C 443.0 177.0, 464.0 177.0, 464.0 184.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 485.0 170.0 C 485.0 177.0, 464.0 177.0, 464.0 184.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 464.0 184.0 C 464.0 191.0, 464.0 191.0, 464.0 198.0"></path>
+                  <circle class="tex-triangle-dot" cx="464.0" cy="184.0" r="4.2"></circle>
+                  <path class="tex-strand tex-red-strand" d="M 527.0 170.0 C 527.0 184.0, 506.0 184.0, 506.0 198.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 569.0 170.0 C 569.0 184.0, 548.0 184.0, 548.0 198.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 212.0 198.0 C 212.0 212.0, 212.0 212.0, 212.0 226.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 254.0 198.0 C 254.0 212.0, 254.0 212.0, 254.0 226.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 296.0 198.0 C 296.0 212.0, 296.0 212.0, 296.0 226.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 338.0 198.0 C 338.0 212.0, 338.0 212.0, 338.0 226.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 380.0 198.0 C 380.0 205.0, 422.0 205.0, 422.0 212.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 422.0 212.0 C 422.0 219.0, 380.0 219.0, 380.0 226.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 422.0 198.0 C 422.0 205.0, 422.0 205.0, 422.0 212.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 422.0 212.0 C 422.0 219.0, 422.0 219.0, 422.0 226.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 464.0 198.0 C 464.0 205.0, 422.0 205.0, 422.0 212.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 422.0 212.0 C 422.0 219.0, 464.0 219.0, 464.0 226.0"></path>
+                  <circle class="tex-move-dot" cx="422.0" cy="212.0" r="3.2"></circle>
+                  <path class="tex-strand tex-red-strand" d="M 506.0 198.0 C 506.0 212.0, 506.0 212.0, 506.0 226.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 548.0 198.0 C 548.0 212.0, 548.0 212.0, 548.0 226.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 212.0 226.0 C 212.0 240.0, 212.0 240.0, 212.0 254.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 254.0 226.0 C 254.0 240.0, 254.0 240.0, 254.0 254.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 296.0 226.0 C 296.0 240.0, 296.0 240.0, 296.0 254.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 338.0 226.0 C 338.0 240.0, 380.0 240.0, 380.0 254.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 380.0 226.0 C 380.0 240.0, 338.0 240.0, 338.0 254.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 422.0 226.0 C 422.0 240.0, 422.0 240.0, 422.0 254.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 464.0 226.0 C 464.0 240.0, 464.0 240.0, 464.0 254.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 506.0 226.0 C 506.0 240.0, 506.0 240.0, 506.0 254.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 548.0 226.0 C 548.0 240.0, 548.0 240.0, 548.0 254.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 212.0 254.0 C 212.0 268.0, 212.0 268.0, 212.0 282.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 254.0 254.0 C 254.0 261.0, 296.0 261.0, 296.0 268.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 296.0 268.0 C 296.0 275.0, 254.0 275.0, 254.0 282.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 296.0 254.0 C 296.0 261.0, 296.0 261.0, 296.0 268.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 296.0 268.0 C 296.0 275.0, 296.0 275.0, 296.0 282.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 338.0 254.0 C 338.0 261.0, 296.0 261.0, 296.0 268.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 296.0 268.0 C 296.0 275.0, 338.0 275.0, 338.0 282.0"></path>
+                  <circle class="tex-move-dot" cx="296.0" cy="268.0" r="3.2"></circle>
+                  <path class="tex-strand tex-green-strand" d="M 380.0 254.0 C 380.0 268.0, 380.0 268.0, 380.0 282.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 422.0 254.0 C 422.0 268.0, 422.0 268.0, 422.0 282.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 464.0 254.0 C 464.0 268.0, 464.0 268.0, 464.0 282.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 506.0 254.0 C 506.0 268.0, 506.0 268.0, 506.0 282.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 548.0 254.0 C 548.0 268.0, 548.0 268.0, 548.0 282.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 212.0 282.0 C 212.0 289.0, 233.0 289.0, 233.0 296.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 254.0 282.0 C 254.0 289.0, 233.0 289.0, 233.0 296.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 233.0 296.0 C 233.0 303.0, 233.0 303.0, 233.0 310.0"></path>
+                  <circle class="tex-triangle-dot" cx="233.0" cy="296.0" r="4.2"></circle>
+                  <path class="tex-strand tex-blue-strand" d="M 296.0 282.0 C 296.0 296.0, 275.0 296.0, 275.0 310.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 338.0 282.0 C 338.0 296.0, 317.0 296.0, 317.0 310.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 380.0 282.0 C 380.0 296.0, 359.0 296.0, 359.0 310.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 422.0 282.0 C 422.0 296.0, 401.0 296.0, 401.0 310.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 464.0 282.0 C 464.0 296.0, 443.0 296.0, 443.0 310.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 506.0 282.0 C 506.0 296.0, 485.0 296.0, 485.0 310.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 548.0 282.0 C 548.0 296.0, 527.0 296.0, 527.0 310.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 233.0 310.0 C 233.0 317.0, 275.0 317.0, 275.0 324.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 275.0 324.0 C 275.0 331.0, 233.0 331.0, 233.0 338.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 275.0 310.0 C 275.0 317.0, 275.0 317.0, 275.0 324.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 275.0 324.0 C 275.0 331.0, 275.0 331.0, 275.0 338.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 317.0 310.0 C 317.0 317.0, 275.0 317.0, 275.0 324.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 275.0 324.0 C 275.0 331.0, 317.0 331.0, 317.0 338.0"></path>
+                  <circle class="tex-move-dot" cx="275.0" cy="324.0" r="3.2"></circle>
+                  <path class="tex-strand tex-green-strand" d="M 359.0 310.0 C 359.0 324.0, 359.0 324.0, 359.0 338.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 310.0 C 401.0 324.0, 401.0 324.0, 401.0 338.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 443.0 310.0 C 443.0 324.0, 443.0 324.0, 443.0 338.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 485.0 310.0 C 485.0 324.0, 485.0 324.0, 485.0 338.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 527.0 310.0 C 527.0 324.0, 527.0 324.0, 527.0 338.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 233.0 338.0 C 233.0 352.0, 233.0 352.0, 233.0 366.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 275.0 338.0 C 275.0 352.0, 275.0 352.0, 275.0 366.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 317.0 338.0 C 317.0 352.0, 359.0 352.0, 359.0 366.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 359.0 338.0 C 359.0 352.0, 317.0 352.0, 317.0 366.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 338.0 C 401.0 352.0, 401.0 352.0, 401.0 366.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 443.0 338.0 C 443.0 352.0, 443.0 352.0, 443.0 366.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 485.0 338.0 C 485.0 352.0, 485.0 352.0, 485.0 366.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 527.0 338.0 C 527.0 352.0, 527.0 352.0, 527.0 366.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 233.0 366.0 C 233.0 380.0, 233.0 380.0, 233.0 394.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 275.0 366.0 C 275.0 380.0, 275.0 380.0, 275.0 394.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 317.0 366.0 C 317.0 380.0, 317.0 380.0, 317.0 394.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 359.0 366.0 C 359.0 373.0, 401.0 373.0, 401.0 380.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 380.0 C 401.0 387.0, 359.0 387.0, 359.0 394.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 366.0 C 401.0 373.0, 401.0 373.0, 401.0 380.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 401.0 380.0 C 401.0 387.0, 401.0 387.0, 401.0 394.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 443.0 366.0 C 443.0 373.0, 401.0 373.0, 401.0 380.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 401.0 380.0 C 401.0 387.0, 443.0 387.0, 443.0 394.0"></path>
+                  <circle class="tex-move-dot" cx="401.0" cy="380.0" r="3.2"></circle>
+                  <path class="tex-strand tex-red-strand" d="M 485.0 366.0 C 485.0 380.0, 485.0 380.0, 485.0 394.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 527.0 366.0 C 527.0 380.0, 527.0 380.0, 527.0 394.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 233.0 394.0 C 233.0 408.0, 254.0 408.0, 254.0 422.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 275.0 394.0 C 275.0 408.0, 296.0 408.0, 296.0 422.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 317.0 394.0 C 317.0 408.0, 338.0 408.0, 338.0 422.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 359.0 394.0 C 359.0 408.0, 380.0 408.0, 380.0 422.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 401.0 394.0 C 401.0 408.0, 422.0 408.0, 422.0 422.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 443.0 394.0 C 443.0 401.0, 464.0 401.0, 464.0 408.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 485.0 394.0 C 485.0 401.0, 464.0 401.0, 464.0 408.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 464.0 408.0 C 464.0 415.0, 464.0 415.0, 464.0 422.0"></path>
+                  <circle class="tex-triangle-dot" cx="464.0" cy="408.0" r="4.2"></circle>
+                  <path class="tex-strand tex-blue-strand" d="M 527.0 394.0 C 527.0 408.0, 506.0 408.0, 506.0 422.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 254.0 422.0 C 254.0 436.0, 254.0 436.0, 254.0 450.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 296.0 422.0 C 296.0 436.0, 296.0 436.0, 296.0 450.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 338.0 422.0 C 338.0 436.0, 338.0 436.0, 338.0 450.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 380.0 422.0 C 380.0 429.0, 422.0 429.0, 422.0 436.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 422.0 436.0 C 422.0 443.0, 380.0 443.0, 380.0 450.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 422.0 422.0 C 422.0 429.0, 422.0 429.0, 422.0 436.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 422.0 436.0 C 422.0 443.0, 422.0 443.0, 422.0 450.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 464.0 422.0 C 464.0 429.0, 422.0 429.0, 422.0 436.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 422.0 436.0 C 422.0 443.0, 464.0 443.0, 464.0 450.0"></path>
+                  <circle class="tex-move-dot" cx="422.0" cy="436.0" r="3.2"></circle>
+                  <path class="tex-strand tex-blue-strand" d="M 506.0 422.0 C 506.0 436.0, 506.0 436.0, 506.0 450.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 254.0 450.0 C 254.0 464.0, 275.0 464.0, 275.0 478.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 296.0 450.0 C 296.0 464.0, 317.0 464.0, 317.0 478.0"></path>
+                  <path class="tex-strand tex-green-strand" d="M 338.0 450.0 C 338.0 464.0, 359.0 464.0, 359.0 478.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 380.0 450.0 C 380.0 464.0, 401.0 464.0, 401.0 478.0"></path>
+                  <path class="tex-strand tex-red-strand" d="M 422.0 450.0 C 422.0 464.0, 443.0 464.0, 443.0 478.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 464.0 450.0 C 464.0 457.0, 485.0 457.0, 485.0 464.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 506.0 450.0 C 506.0 457.0, 485.0 457.0, 485.0 464.0"></path>
+                  <path class="tex-strand tex-blue-strand" d="M 485.0 464.0 C 485.0 471.0, 485.0 471.0, 485.0 478.0"></path>
+                  <circle class="tex-triangle-dot" cx="485.0" cy="464.0" r="4.2"></circle>
+                </g>
+              </svg>
+            </div>
+            <ul class="source-list compact-source-list">
+              <li>
+                A Demazure weave
+                \[
+                  \begin{aligned}
+                  \fW:\ &(2,1,1,2,1,3,2,1,1,2,2,1)\\
+                  &\longrightarrow (1,2,3,1,2,1).
+                  \end{aligned}
+                \]
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="braid-cluster-slide" class="static-slide braid-cluster-comparison-slide" aria-label="Cluster structure on braid variety">
+          <div class="static-left braid-cluster-visual">
+            <div id="braid-cluster-weave-copy" class="braid-cluster-weave-copy" aria-label="Demazure weave example"></div>
+            <div class="seed-chain-down-arrow braid-cluster-down-arrow" aria-hidden="true"></div>
+            <div class="seed-quiver-html braid-quiver-html" role="img" aria-label="Quiver from Demazure weave">
+              <svg class="seed-chain-svg braid-cluster-svg" viewBox="0 0 560 430" aria-hidden="true">
+                <defs>
+                  <marker id="braid-seed-arrow" markerWidth="7" markerHeight="7" refX="6.1" refY="3.5" orient="auto" markerUnits="strokeWidth">
+                    <path d="M 0 0 L 7 3.5 L 0 7 z"></path>
+                  </marker>
+                </defs>
+                <path class="seed-chain-edge" d="M 198 209 L 267 170"></path>
+                <path class="seed-chain-edge" d="M 330 168 L 391 207"></path>
+                <path class="seed-chain-edge" d="M 380 239 L 214 239"></path>
+                <path class="seed-chain-edge" d="M 198 269 L 242 327"></path>
+                <path class="seed-chain-edge" d="M 459 141 L 348 138"></path>
+                <path class="seed-chain-edge" d="M 453 209 L 459 165"></path>
+                <path class="seed-chain-edge" d="M 358 327 L 391 271"></path>
+                <path class="seed-chain-edge" d="M 116 290 L 135 271"></path>
+              </svg>
+              <div class="seed-node-html mutable" style="left:53.57%;top:32.09%;">
+                <span class="seed-c-label braid-label-text">A<sub>3</sub>(<span class="frak-letter">&#x1D51A;</span>)</span>
+              </div>
+              <div class="seed-node-html mutable" style="left:30.00%;top:55.58%;">
+                <span class="seed-c-label braid-label-text">A<sub>1</sub>(<span class="frak-letter">&#x1D51A;</span>)</span>
+              </div>
+              <div class="seed-node-html mutable" style="left:75.54%;top:55.58%;">
+                <span class="seed-c-label braid-label-text">A<sub>4</sub>(<span class="frak-letter">&#x1D51A;</span>)</span>
+              </div>
+              <div class="seed-node-html frozen" style="left:10.36%;top:73.02%;">
+                <span class="seed-c-label braid-label-text">A<sub>6</sub>(<span class="frak-letter">&#x1D51A;</span>)</span>
+              </div>
+              <div class="seed-node-html frozen" style="left:92.32%;top:32.79%;">
+                <span class="seed-c-label braid-label-text">A<sub>2</sub>(<span class="frak-letter">&#x1D51A;</span>)</span>
+              </div>
+              <div class="seed-node-html frozen" style="left:53.57%;top:81.63%;">
+                <span class="seed-c-label braid-label-text">A<sub>5</sub>(<span class="frak-letter">&#x1D51A;</span>)</span>
+              </div>
+              <div class="seed-d-line braid-seed-line">
+                \(\Sigma(\fW)=
+                \bigl(\calA(\fW),Q(\fW)\bigr)\)
+              </div>
+            </div>
+          </div>
+
+          <div class="static-right braid-cluster-text">
+            <ul class="big-list braid-cluster-rules">
+              <li class="seed-rule braid-rule-weave">
+                Fix \(\uii\in\Seq(\ttb)\) with \(\delta(\uii)=w_\circ\).
+                \[
+                  \fW:\uii\to w_\circ
+                \]
+                is a Demazure weave.
+              </li>
+              <li class="seed-rule braid-rule-quiver">
+                Quiver:
+                \[
+                  Q(\fW).
+                \]
+              </li>
+              <li class="seed-rule braid-rule-functions">
+                Regular functions on the braid variety:
+                \[
+                  \calA(\fW):=
+                  \{A_t(\fW)\mid
+                  1\le t\le
+                  \#\text{ 3-valent vertices}\}.
+                \]
+              </li>
+            </ul>
+            <div class="theorem-card braid-cluster-theorem">
+              <div class="definition-title">
+                Theorem
+                <span class="braid-cluster-theorem-author">
+                  (Casals-Gorsky-Gorsky-Le-Shen-Simental)
+                </span>
+              </div>
+              <div>
+                For \(\uii\in\Seq(\ttb)\) with \(\delta(\uii)=w_\circ\)
+                and \(\fW:\uii\to w_\circ\), set
+                \[
+                  \Sigma(\fW):=\bigl(\calA(\fW),Q(\fW)\bigr).
+                \]
+                <p class="braid-theorem-conclusion">
+                  Then \(\cA(\Sigma(\fW))\simeq\C[X(\uii)]\).
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="pre-comparison-summary-slide" class="static-slide single-column pre-comparison-slide" aria-label="Two cluster algebra structures">
+          <div class="pre-comparison-grid">
+            <div class="pre-comparison-panel">
+              <div class="pre-comparison-panel-title">\(i\)-boxes</div>
+              <p class="pre-comparison-line">
+                Fix \(\uii\in\Seq(\ttb)\).<br>
+                Fix an admissible chain \(\frakC\) associated with \(\uii\).
+              </p>
+              <div id="summary-chain-copy" class="summary-example-copy summary-chain-copy" aria-label="Admissible chain example"></div>
+              <div class="summary-seed-card">
+                \[
+                  \frakC
+                  \longmapsto
+                  \seed(\frakC):=
+                  \bigl(\mD(\frakC),Q(\frakC)\bigr).
+                \]
+                \[
+                  \cA(\seed(\frakC))
+                  \simeq
+                  \tobbA_{\C}(\ttb).
+                \]
+              </div>
+            </div>
+
+            <div class="pre-comparison-panel">
+              <div class="pre-comparison-panel-title">Demazure weaves</div>
+              <p class="pre-comparison-line">
+                Fix \(\uii\in\Seq(\ttb)\) with \(\delta(\uii)=w_\circ\).<br>
+                Fix a Demazure weave \(\fW:\uii\to w_\circ\).
+              </p>
+              <div id="summary-weave-copy" class="summary-example-copy summary-weave-copy" aria-label="Demazure weave example"></div>
+              <div class="summary-seed-card">
+                \[
+                  \fW
+                  \longmapsto
+                  \Sigma(\fW):=
+                  \bigl(\calA(\fW),Q(\fW)\bigr).
+                \]
+                \[
+                  \cA(\Sigma(\fW))
+                  \simeq
+                  \C[X(\uii)].
+                \]
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="comparison-setup-slide" class="static-slide single-column comparison-setup-slide" aria-label="Setup for comparison theorem">
+          <div class="single-column-content comparison-setup-content">
+            <div class="definition-card comparison-setup-card">
+              <div class="definition-title">Setup</div>
+              <div class="comparison-setup-lines">
+                <div>
+                  \[
+                    \Delta\in\Br^{+}:
+                    \text{ the half twist, i.e. the lift of }w_\circ,
+                    \qquad
+                    \rxw\in\Seq(\Delta).
+                  \]
+                </div>
+                <div>
+                  \[
+                    \uii=(i_1,\ldots,i_r)\in\Seq(\ttb).
+                  \]
+                </div>
+                <div>
+                  \[
+                    \text{We consider the braid variety }X(\rxw\uii).
+                  \]
+                </div>
+                <p>
+                  This braid variety is isomorphic to the
+                  <span class="blue-term">half-decorated double Bott-Samelson variety</span>
+                  \(\Conf(\uii)\).
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="comparison-theorem-slide" class="static-slide single-column comparison-theorem-slide" aria-label="Comparison theorem">
+          <div class="single-column-content comparison-theorem-content">
+            <div class="comparison-theorem-card">
+              <p class="comparison-construction-line">
+                For an admissible chain \(\frakC=(\frakc_t)_{t=1}^r\) of \(\uii\),
+                we construct a Demazure weave
+              </p>
+              <div class="comparison-construction-weave">
+                \[
+                  \fW_{\Delta}(\frakC).
+                \]
+              </div>
+              <div class="comparison-theorem-box">
+                <div class="definition-title">Theorem (Huh-J.-Kim-Park)</div>
+                <p>There is a unique algebra isomorphism</p>
+                <div class="comparison-isomorphism">
+                  \[
+                    \varphi_{\uii}:\tobbA_{\C}(\ttb)
+                    \xrightarrow{\sim}
+                    \C[X(\rxw\uii)],
+                    \qquad
+                    \varphi_{\uii}(\bFF_{\uii,t})=z_t
+                    \quad(1\le t\le r).
+                  \]
+                </div>
+                <p class="comparison-seed-heading">Seed comparison:</p>
+                <div class="comparison-match-lines">
+                  \[
+                    \begin{aligned}
+                    \varphi_{\uii}\bigl(\mD(\frakc_t)\bigr)
+                    &=
+                    A_t\bigl(\fW_{\Delta}(\frakC)\bigr)
+                    \qquad(1\le t\le r),\\
+                    Q\bigl(\fW_{\Delta}(\frakC)\bigr)
+                    &=
+                    Q(\frakC)^{\rm op}.
+                    \end{aligned}
+                  \]
+                </div>
+              </div>
+              <p class="comparison-remark">
+                Remark. This algebra isomorphism was first observed by Fan Qin.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="star-notation-slide" class="static-slide single-column" aria-label="Notation before W Delta">
+          <div class="single-column-content star-content">
+            <p>Let \(\alpha_i\) be the simple root corresponding to \(i\in I\).</p>
+            <div class="definition-card">
+              <div class="definition-title">Definition</div>
+              <p>For \(i\in I\), define \(i^*\in I\) by</p>
+              \[
+                \alpha_{i^*}=-w_\circ(\alpha_i).
+              \]
+            </div>
+            <div class="star-dynkin">
+              <span class="star-node">1</span><span class="star-edge"></span><span class="star-node">2</span><span class="star-edge"></span><span class="star-node">3</span>
+            </div>
+            <p class="center-line">\(1^*=3,\quad 2^*=2,\quad 3^*=1\)</p>
+            <p class="center-line">In type \(A_n\), \(i^*=n+1-i\).</p>
+          </div>
+        </section>
+
+        <section id="weave-construction-slide" class="static-slide single-column" aria-label="Construction of W Delta">
+          <iframe
+            class="wdelta-construction-embed"
+            src="../wdelta_construction_html/index.html?embed=1&v=construction-visible-1"
+            title="Construction of W Delta C"
+            tabindex="0"
+            loading="eager"></iframe>
+        </section>
+
+        <section id="quantum-affine-slide" class="static-slide single-column dense-slide" aria-label="Quantum affine algebras">
+          <div class="single-column-content">
+            <ul class="source-list compact-source-list">
+              <li>Let \(\mathfrak g_{\mathrm{aff}}\) be an affine Kac-Moody algebra.</li>
+              <li>There is a way to associate a finite ADE type \(\g\) to \(\mathfrak g_{\mathrm{aff}}\).</li>
+              <li>
+                The positive braid \(\ttb\) gives a subcategory
+                \[
+                  \mathscr C_{\mathfrak g_{\mathrm{aff}}}^{\mathbb D}(\ttb)
+                \]
+                of finite-dimensional \(U_q'(\mathfrak g_{\mathrm{aff}})\)-modules.
+              </li>
+              <li>
+                This subcategory contains \(C_t^{\mathbb D,\uii}\) affine cuspidal modules and
+                \(M^{\mathbb D,\uii}[a,b]\) affine determinantial modules.
+              </li>
+            </ul>
+            <div class="theorem-card">
+              <div class="definition-title">Theorem (Kashiwara-Kim-Oh-Park)</div>
+              \[
+                K\bigl(\mathscr C_{\mathfrak g_{\mathrm{aff}}}^{\mathbb D}(\ttb)\bigr)
+                \xrightarrow{\sim}\obbA(\ttb)
+              \]
+              \[
+                [C_t^{\mathbb D,\uii}]\longmapsto \bFF_{\uii,t},
+                \qquad
+                [M^{\mathbb D,\uii}[a,b]]\longmapsto \mD_{\uii}[a,b].
+              \]
+            </div>
+          </div>
+        </section>
+
+        <section id="affine-corollary-slide" class="static-slide single-column dense-slide affine-corollary-slide" aria-label="Affine determinantial modules">
+          <div class="single-column-content affine-corollary-content">
+            <div class="theorem-card affine-corollary-card">
+              <div class="definition-title">Corollary (Huh-J.-Kim-Park)</div>
+              <p>
+                Assume \(\mathfrak g_{\mathrm{aff}}\) is of type \(A_n^{(1)}\).
+                For any \(i\)-box \([a,b]\) of \(\uii\),
+              </p>
+              \[
+                [M^{\mathbb D,\uii}[a,b]]
+                =
+                \triangle_{i_a}
+                \bigl(
+                  B_{i_a}([C_a^{\mathbb D,\uii}])
+                  B_{i_{a+1}}([C_{a+1}^{\mathbb D,\uii}])
+                  \cdots
+                  B_{i_b}([C_b^{\mathbb D,\uii}])
+                \bigr).
+              \]
+              \[
+                B_i(z)=
+                \operatorname{diag}\left(
+                  I_{i-1},
+                  \begin{pmatrix}z&-1\\ 1&0\end{pmatrix},
+                  I_{n-i}
+                \right),
+                \qquad
+                \triangle_i=\text{the leading principal }i\times i\text{ minor}.
+              \]
+            </div>
+          </div>
+        </section>
+
+        <section id="affine-example-slide" class="static-slide single-column dense-slide affine-example-slide" aria-label="Affine determinantial modules example">
+          <div class="single-column-content affine-example-content">
+            <div class="theorem-card affine-example-panel">
+              <div class="definition-title">Example</div>
+              <p>
+                In type \(A_3^{(1)}\), let \(\uii=(2,3,1,2,2,1)\), and write
+                \(C_t:=[C_t^{\mathbb D,\uii}]\). For the \(i\)-box
+                \([3,6]\), the corollary gives
+              </p>
+              \[
+                [M^{\mathbb D,\uii}[3,6]]
+                =
+                \triangle_1\bigl(B_1(C_3)B_2(C_4)B_2(C_5)B_1(C_6)\bigr).
+              \]
+              \[
+                B_1(C_3)B_2(C_4)B_2(C_5)B_1(C_6)
+                =
+                \begin{pmatrix}
+                C_3C_6-C_4C_5+1&-C_3&C_4&0\\
+                C_6&-1&0&0\\
+                C_5&0&-1&0\\
+                0&0&0&1
+                \end{pmatrix}.
+              \]
+              \[
+                [M^{\mathbb D,\uii}[3,6]]=C_3C_6-C_4C_5+1.
+              \]
+            </div>
+          </div>
+        </section>
+
+        <section id="thank-you-slide" class="static-slide single-column thank-you-slide" aria-label="Thank you">
+          <div class="thank-you-content">
+            <h1>Thank you</h1>
+            <img class="qr-image" src="./assets_visualizer_qr.png" alt="QR code for the i-box / Demazure weave visualizer">
+            <p class="thank-qr-label">QR code: i-box / Demazure weave visualizer</p>
+            <p class="thank-link">jungw-s.github.io/i-box-Demazure-weave-visualizer</p>
+            <p class="thank-note">Best viewed on a PC or laptop.</p>
+            <p class="thank-note">
+              For the construction of \(\mathfrak W_\Delta(\mathfrak C)\), click
+              <span class="blue-term">Construction demo</span>.
+            </p>
+          </div>
+        </section>
+      </section>
+
+      <footer id="slide-footer" class="slide-footer">
+        <span>W.-S. Jung</span>
+        <span id="step-counter">1/1</span>
+      </footer>
+    </main>
+
+    <div class="controls" aria-label="Slide controls">
+      <button id="prev-step" type="button">Previous</button>
+      <button id="next-step" type="button">Next</button>
+    </div>
+
+    <script defer src="./cluster_intro.js?v=cluster-flow-20260624-67"></script>
+  </body>
+</html>

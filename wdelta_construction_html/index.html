@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Construction of W_Delta(frakC)</title>
+    <link rel="stylesheet" href="./story_mode_embed/story_rebuild.css?v=source-labels-1">
+    <link rel="stylesheet" href="./styles.css?v=source-labels-2">
+  </head>
+  <body>
+    <script>
+      if (new URLSearchParams(window.location.search).get("embed") === "1") {
+        document.body.classList.add("deck-embed");
+      }
+    </script>
+    <main class="scroll-shell" aria-label="Construction of W Delta frakC">
+      <section class="sticky-frame">
+        <header class="frame-title">
+          Construction of <span class="math-formula">W<sub>Δ</sub>(C)</span>
+        </header>
+
+        <section class="frame-body">
+          <section class="visual-panel" aria-label="Animated construction">
+            <div id="visualCanvas" class="visual-canvas">
+              <div id="pyramid" class="chain-pyramid" aria-label="i-box pyramid">
+                <div class="chain-head">
+                  <span class="math-formula">𝐢=(2,3,1,2,2,1)</span>
+                  <span class="math-formula">H=(L,R,L,R,R)</span>
+                </div>
+                <div id="chainRows" class="chain-rows"></div>
+              </div>
+
+              <div id="deltaCard" class="delta-card" aria-label="underline Delta expression">
+                <div class="word-caption"><span class="math-formula"><span class="rxw-symbol">Δ</span>=(1,2,1,3,2,1)</span></div>
+                <div id="deltaStart" class="word-row"></div>
+              </div>
+
+              <div id="assembly" class="assembly" aria-label="i underline Delta assembly">
+                <div class="assembly-word">
+                  <div id="leftSlots" class="side-slots left-slots"></div>
+                  <div id="deltaSpine" class="delta-spine"></div>
+                  <div id="rightSlots" class="side-slots right-slots"></div>
+                </div>
+              </div>
+
+              <div id="storyModeOverlay" class="story-mode-overlay" aria-label="Lower weave construction">
+                <main class="story-rebuild-shell story-direct-shell">
+                  <section class="rebuild-input-wrap story-mode-controls" aria-hidden="true">
+                    <form id="input-form" class="input-panel">
+                      <input id="rank-input" name="rank" type="number">
+                      <input id="r-input" name="r" type="number">
+                      <textarea id="u-input" name="u"></textarea>
+                      <textarea id="rxw-input" name="rxw"></textarea>
+                      <textarea id="lr-input" name="lr"></textarea>
+                      <button id="random-button" type="button"></button>
+                      <div id="error-box" hidden></div>
+                    </form>
+                  </section>
+
+                  <section id="story-film" class="story-film" aria-label="Original story mode renderer">
+                    <div class="story-sticky">
+                      <div class="story-stage">
+                        <svg id="story-svg" viewBox="0 0 1440 860" role="img" aria-label="Double inductive weave construction"></svg>
+                        <button id="story-play-button" class="story-play-button" type="button" aria-label="Play animation">
+                          <span class="story-play-icon" aria-hidden="true">▶</span>
+                          <span class="story-play-label">Play</span>
+                        </button>
+                        <div id="story-caption" class="story-caption" aria-live="polite"></div>
+                        <div class="story-progress" aria-hidden="true">
+                          <span id="story-progress-fill"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </main>
+              </div>
+
+              <div id="starPanel" class="star-panel" aria-hidden="true">
+                <span id="starFrom" class="star-value">3</span>
+                <span class="star-arrow">-*-></span>
+                <span id="starTo" class="star-value">1</span>
+              </div>
+
+              <div id="movingTokens" class="moving-tokens" aria-hidden="true"></div>
+            </div>
+          </section>
+
+          <aside class="explanation-panel" aria-label="Construction explanation">
+            <div id="phaseLabel" class="progress-label phase-label" aria-live="polite">
+              <span class="phase-step active" data-phase="0">Step 1/3: Construct the word <span class="math-formula">i<sub>Δ</sub>(C)</span></span>
+              <span class="phase-step" data-phase="1">Step 2/3: Build the weave <span class="math-formula">i<sub>Δ</sub>(C) → w<sub>0</sub></span></span>
+              <span class="phase-step" data-phase="2">Step 3/3: Construct <span class="math-formula">W<sub>Δ</sub>(C)</span></span>
+            </div>
+            <div id="storyStack" class="story-stack">
+              <section class="story-block active" data-story="0">
+                <ul class="story-list">
+                  <li><span class="math-formula">C</span> is an admissible chain of i-boxes.</li>
+                  <li><span class="math-formula"><span class="rxw-symbol">Δ</span></span> is a reduced expression of <span class="math-formula">w<sub>0</sub></span>.</li>
+                  <li>First construct the word <span class="math-formula">i<sub>Δ</sub>(C)</span>.</li>
+                </ul>
+              </section>
+
+              <section class="story-block" data-story="1">
+                <ul class="story-list">
+                  <li>Place <span class="math-formula"><span class="rxw-symbol">Δ</span></span> in the middle.</li>
+                </ul>
+              </section>
+
+              <section class="story-block" data-story="2">
+                <ul class="story-list">
+                  <li>Read the i-boxes in the order of <span class="math-formula">C</span>.</li>
+                  <li>For each i-box, record its color: the index at the endpoint.</li>
+                </ul>
+              </section>
+
+              <section class="story-block" data-story="3">
+                <ul class="story-list">
+                  <li>If <span class="math-formula">c</span> or <span class="math-formula">R</span>, then place the color on the right of <span class="math-formula"><span class="rxw-symbol">Δ</span></span>.</li>
+                  <li>If <span class="math-formula">L</span>, then apply the <span class="math-formula">*</span>-involution and place the result on the left of <span class="math-formula"><span class="rxw-symbol">Δ</span></span>.</li>
+                </ul>
+              </section>
+
+              <section class="story-block" data-story="4">
+                <ul class="story-list">
+                  <li>The resulting word is <span class="math-formula">i<sub>Δ</sub>(C)</span>.</li>
+                </ul>
+              </section>
+
+              <section class="story-block" data-story="5">
+                <ul class="story-list">
+                  <li>Start from the word <span class="math-formula">i<sub>Δ</sub>(C)</span>.</li>
+                  <li>For <span class="math-formula">t=1,...,r</span>, attach the strand for <span class="math-formula">c<sub>t</sub></span><br>to the same-color Δ-strand;<br>use 4-/6-valent moves if necessary;<br>then create one trivalent vertex.</li>
+                  <li>This gives a weave <span class="math-formula">i<sub>Δ</sub>(C) → w<sub>0</sub></span>.</li>
+                </ul>
+              </section>
+
+              <section class="story-block" data-story="6">
+                <ul class="story-list final-story-list">
+                  <li class="final-emphasis final-construct-emphasis">Construct another weave <span class="math-formula"><span class="rxw-symbol">Δ</span>i → i<sub>Δ</sub>(C)</span><br>using only 4- and 6-valent vertices.</li>
+                  <li class="final-emphasis final-concat-emphasis final-emphasis-gap">Concatenate these two weaves.</li>
+                  <li class="final-emphasis final-result-emphasis">This gives <span class="math-formula">W<sub>Δ</sub>(C): <span class="rxw-symbol">Δ</span>i → w<sub>0</sub></span>.</li>
+                </ul>
+              </section>
+            </div>
+          </aside>
+        </section>
+      </section>
+    </main>
+    <script>
+      window.STORY_MODE_EMBED = true;
+    </script>
+    <script src="./script.js?v=construction-visible-1"></script>
+    <script src="./story_mode_embed/story_rebuild.bundle.js?v=construction-visible-1"></script>
+  </body>
+</html>
